@@ -1,23 +1,21 @@
-## Instructions
-- Delete this block before adding to your repository.
-- Delete any instructions you see below they will be within < >
-- This schedule should reflect the meetings from the start of the project until the end of the semester.
-- Write at least 1 meeting per week until the end of the semester
+## Meetings    
+### 2023-11-02 at 11:30                              
+<Who attended the meeting: Jaclyn, Novel, Natalie, Iskandar>
+<Team updates (15min or less): Initial meeting>
+<pair-programming (optional) (25 mins): NA>
+<Summarize group progress: We assigned tasks to each member, figured out a 
+name for the project(JotBot), and decided on the application features. From the 
+features we made a list of possible non-functional requirements>
 
-## Meetings
-### 2023-10-01 at 10:30
-- Who attended the meeting
-- Team updates (15min or less)
-<Each team member gives an update of what they did from the last meeting and what
-they plan to do next. If they are stuck, bring it up here to see if others can
-help.>
-- <name> worked on X. Will work on Y next.
-- pair-programming (optional) (25 mins)
-<- Pair program on one part of the project. Driver will be the person responsible
-for that requirement.>
-- Summarize group progress
+### 2023-11-02 at 16:30
+<Who attended the meeting: Jaclyn and Novel>
+<Team updates (15min or less): Still setting-up>
+<pair-programming (optional) (25 mins): NA>
+<Summarize group progress: Finalized the 14 function requirements from the list we had 
+earlier, ranked them, and assigned everyone their 3-4 for use cases. Finalized 2 
+non-functional requirements>
 
-### 2023-10-08 at 13:30
+### 2023-11-07 at 11:30
 <meeting template would go here>
 <only fill in template once you had the meeting>
 <see example on the last date>
