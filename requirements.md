@@ -22,32 +22,6 @@
 
 <each of the 14 requirements will have a use case associated with it>
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
-1. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description>
-- **Trigger:** <can be a list or short description>
-- **Primary Sequence:**
-1. Ut enim ad minim veniam, quis nostrum e
-2. Et sequi incidunt
-3. Quis aute iure reprehenderit
-4. ...
-5. ...
-6. ...
-7. ...
-8. ...
-9. ...
-10. <Try to stick to a max of 12 steps>
-- **Primary Postconditions:** <can be a list or short description>
-- **Alternate Sequence:** <you can have more than one alternate sequence to
-describe multiple issues that may arise and their outcomes>
-1. Ut enim ad minim veniam, quis nostrum e
-2. Ut enim ad minim veniam, quis nostrum e
-3. ...
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-
-1. Ut enim ad minim veniam, quis nostrum e
-2. Ut enim ad minim veniam, quis nostrum e
-3. ...
-
 11. **Search for Specific Keywords** <Jaclyn Turner>
 - **Summary:** Users can search for specific keywords or titles within their notes for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
@@ -57,6 +31,7 @@ describe multiple issues that may arise and their outcomes>
 - 1. User enters keywords in the search bar.
 - 2. The application searches the database for notes containing the specified keywords.
 - 3. The application displays a list of matching notes.
+- **Primary Postcondition:** The user can access the notes that match the search criteria.
 - **Alternate Sequence:**
 - 3. No matching notes are found.
 - 4. The application displays a “no results” message.
@@ -71,6 +46,7 @@ describe multiple issues that may arise and their outcomes>
 - 2. User creates a new folder or selects an existing one.
 - 3. User assigns notes to the selected folder.
 - 4. Notes are organized accordingly.
+- **Primary Postcondition:** The user's notes are organized into folders for easy management.
 - **Alternate Sequence:**
 - 3. User cancels the folder creation or selection.
 - 4. No changes are made.
@@ -85,6 +61,7 @@ describe multiple issues that may arise and their outcomes>
 - 2. User click “Export as a PDF”.
 - 3. The application generates a PDF file containing the selected note's content.
 - 4. User downloads or saves the PDF file.
+- **Primary Postcondition:** The user has a downloadable PDF copy of the selected note.
 - **Alternate Sequence:**
 - 3. Application fails to generate PDF.
 - 4. Application informs user with “Error” message.
@@ -100,6 +77,7 @@ describe multiple issues that may arise and their outcomes>
 - 3. The application prompts user for password and confirmation.
 - 4. User enters and confirms a password for the note.
 - 5. The application encrypts the note with the provided password.
+- **Primary Postcondition:** The selected note is secured with a password, and only users with the correct password can access it.
 - **Alternate Sequence:**
 - 4. User unable to confirm password for the note.
 - 5. Application informs user with “Passwords do not match” message.
