@@ -17,10 +17,9 @@
 <using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 
 ## Non-functional Requirements
-1. <The application should be in American English.>
-2. <The application should be compatible with Google Chrome version 118.0.5993.129 and prior.>
+1. The application should be in American English.
+2. The application should be compatible with Google Chrome version 118.0.5993.129 and prior.
 
-<each of the 14 requirements will have a use case associated with it>
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
 11. **Search for Specific Keywords** <Jaclyn Turner>
 - **Summary:** Users can search for specific keywords or titles within their notes for quick and efficient access to relevant information.
