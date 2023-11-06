@@ -18,7 +18,7 @@
 
 ## Non-functional Requirements
 1. The application should be in American English.
-2. The application should be compatible with Google Chrome version 118.0.5993.129 and prior.
+2. The application should be compatible with Google Chrome version 118.0.5993.129 or prior.
 
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
 11. **Search for Specific Keywords** <Jaclyn Turner>
