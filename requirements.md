@@ -57,9 +57,9 @@ describe multiple issues that may arise and their outcomes>
 - 1. User enters keywords in the search bar.
 - 2. The application searches the database for notes containing the specified keywords.
 - 3. The application displays a list of matching notes.
--**Alternate Sequence:**
+- **Alternate Sequence:**
 - 3. No matching notes are found.
-- 3a. The application displays a “no results” message.
+- 4. The application displays a “no results” message.
 
 12. **Categorize Notes into Folders** <Jaclyn Turner>
 - **Summary:** Users can organize their notes by categorizing them into different folders for better organization and easy retrieval.
@@ -71,9 +71,9 @@ describe multiple issues that may arise and their outcomes>
 - 2. User creates a new folder or selects an existing one.
 - 3. User assigns notes to the selected folder.
 - 4. Notes are organized accordingly.
--**Alternate Sequence:**
+- **Alternate Sequence:**
 - 3. User cancels the folder creation or selection.
-- 3a. No changes are made.
+- 4. No changes are made.
 
 13. **Export Notes to PDF** <Jaclyn Turner>
 - **Summary:** Users can export their notes to a PDF file for offline access or sharing with others.
@@ -85,9 +85,9 @@ describe multiple issues that may arise and their outcomes>
 - 2. User click “Export as a PDF”.
 - 3. The application generates a PDF file containing the selected note's content.
 - 4. User downloads or saves the PDF file.
--**Alternate Sequence:**
+- **Alternate Sequence:**
 - 3. Application fails to generate PDF.
-- 3a. Application informs user with “Error” message.
+- 4. Application informs user with “Error” message.
 
 14. **Secure Individual Notes with a Password** <Jaclyn Turner>
 - **Summary:** Users can enhance the privacy of specific notes by securing them with a password.
@@ -100,7 +100,7 @@ describe multiple issues that may arise and their outcomes>
 - 3. The application prompts user for password and confirmation.
 - 4. User enters and confirms a password for the note.
 - 5. The application encrypts the note with the provided password.
--**Alternate Sequence:**
+- **Alternate Sequence:**
 - 4. User unable to confirm password for the note.
-- 4a. Application informs user with “Passwords do not match” message.
-- 4b. Application prompts user to re-enter and confirm password for the note.
+- 5. Application informs user with “Passwords do not match” message.
+- 6. Application prompts user to re-enter and confirm password for the note.
