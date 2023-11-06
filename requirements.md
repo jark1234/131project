@@ -30,15 +30,20 @@
 - **Summary:** This feature should allow a user to create a new account using an email address and a password. 
 - **Actors:** User and Application
 - **Pre-conditions:** User does not have an existing account with that particular email address.
-- **Trigger:** User clicks "Create new account."
+- **Trigger:** User clicks "Create New Account."
 - **Primary Sequence:**
-- 
-- 
-- 
-- **Primary Postcondition:** The user can access the notes that match the search criteria.
-- **Alternate Sequence:**
-- 3. No matching notes are found.
-- 4. The application displays a “no results” message.
+- 1. User clicks on Create new account option
+- 2. User enters their email address in the first field
+- 3. User enters a password with at least one uppercase character and at least on special symbol in the second field
+- 4. User re-enters same password in third field
+- 5. User clicks "Create Account"
+- **Alternate Sequence: User enters an email that is already in use**
+- 1. User is prompted to sign in with existing email address
+- ** Postcondition:** 
+- A new account is created with respective email address and password.
+- OR
+- User is prompted to sign in with existing email address and password. 
+
 2. **Users must be able to create a new note** <Novel Alam>
 
 3. **Users must be able to edit existing note** <Novel Alam>
