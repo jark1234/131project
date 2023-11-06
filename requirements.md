@@ -55,14 +55,15 @@
 - **Pre-conditions:** User is logged in and has at least one note in the database.
 - **Trigger:** User selects a deleted note to restore.
 - **Primary Sequence:**
-i. User navigates to the "Trash" or "Deleted Notes" section.
-ii. User selects a deleted note they want to restore.
-iii. User clicks "Restore within 30 days."
-iv. The application checks if the note was deleted within the last 30 days.
-v. If the note was deleted within the last 30 days, the application restores the note to the user's notes list.
+- 1. User navigates to the "Trash" or "Deleted Notes" section.
+- 2. User selects a deleted note they want to restore.
+- 3. User clicks "Restore within 30 days."
+- 4. The application checks if the note was deleted within the last 30 days.
+- 5. The note was deleted within the last 30 days, the application restores the note to the user's notes list.
 - **Primary Postcondition:** The deleted note is successfully restored to the user's notes list.
 - **Alternate Sequence:**
-iv. If the note was deleted more than 30 days ago, the application informs the user with a message stating that it cannot be restored.
+- 5. The note was deleted more than 30 days ago.
+- 6. The application informs the user with a message stating that it cannot be restored.
 
 6. **Notes stored in a database** <Iskandar Daoud>
 - **Summary:** User notes are stored in a secure database with data encryption and access controls.
@@ -70,13 +71,15 @@ iv. If the note was deleted more than 30 days ago, the application informs the u
 - **Pre-conditions:** None
 - **Trigger:** User creates or updates a note.
 - **Primary Sequence:**
-i. User creates a new note or updates an existing one.
-ii. The application sends the note data to the database.
-iii. The database encrypts the note data using robust encryption methods.
-iv. The database stores the encrypted note data and enforces access controls to protect data privacy and integrity.
+- 1. User creates a new note or updates an existing one.
+- 2. The application sends the note data to the database.
+- 3. The database encrypts the note data using robust encryption methods.
+- 4. The database stores the encrypted note data and enforces access controls to protect data privacy and integrity.
 - **Primary Postcondition:** The note data is securely stored in the database with encryption and access controls to safeguard data privacy and integrity.
 - **Alternate Sequence:**
-iii. If encryption fails or access controls are breached, the application informs the user with an error message and does not store the note.
+- 3. The encryption fails or access controls are breached.
+- 4. The application informs the user with an error message.
+- 5. The application does not store the note.
 
 7. **Timestamp last edit** <Iskandar Daoud>
 - **Summary:** Each note includes a timestamp to record the last edit.
