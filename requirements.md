@@ -20,7 +20,31 @@
 1. The application should be in American English.
 2. The application should be compatible with Google Chrome version 118.0.5993.129 or prior.
 
+
+
+
+
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
+
+1. **Users must be able to create an account using email and password** <Novel Alam>
+- **Summary:** This feature should allow a user to create a new account using an email address and a password. 
+- **Actors:** User and Application
+- **Pre-conditions:** User does not have an existing account with that particular email address.
+- **Trigger:** User clicks "Create new account."
+- **Primary Sequence:**
+- 
+- 
+- 
+- **Primary Postcondition:** The user can access the notes that match the search criteria.
+- **Alternate Sequence:**
+- 3. No matching notes are found.
+- 4. The application displays a “no results” message.
+2. **Users must be able to create a new note** <Novel Alam>
+
+3. **Users must be able to edit existing note** <Novel Alam>
+4. **Users must be able to delete notes** <Novel Alam>
+
+
 11. **Search for Specific Keywords** <Jaclyn Turner>
 - **Summary:** Users can search for specific keywords or titles within their notes for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
