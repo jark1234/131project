@@ -39,7 +39,7 @@
 - 5. User clicks "Create Account"
 - **Alternate Sequence: User enters an email that is already in use**
 - 1. User is prompted to sign in with existing email address
-- ** Postcondition:** 
+- **Postcondition:** 
 - A new account is created with respective email address and password.
 - OR
 - User is prompted to sign in with existing email address and password. 
