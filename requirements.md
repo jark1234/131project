@@ -84,12 +84,14 @@ iii. If encryption fails or access controls are breached, the application inform
 - **Pre-conditions:** User is logged in and has at least one note in the database.
 - **Trigger:** User edits a note.
 - **Primary Sequence:**
-i. User selects a note to edit.
-ii. User makes changes to the note content.
-iii. The application automatically updates the timestamp for the note to reflect the current date and time.
+- 1. User selects a note to edit.
+- 2. User makes changes to the note content.
+- 3. The application automatically updates the timestamp for the note to reflect the current date and time.
 - **Primary Postcondition:** The selected note now includes a timestamp recording the last edit date and time.
 - **Alternate Sequence:**
-ii. If the application fails to update the timestamp, the note's timestamp remains unchanged, and the application informs the user with an error message.
+- 2. The application fails to update the timestamp.
+- 3. The note's timestamp remains unchanged.
+- 4. The application informs the user with an error message.
 
 
 11. **Search for Specific Keywords** <Jaclyn Turner>
