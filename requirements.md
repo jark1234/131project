@@ -78,17 +78,17 @@ Primary Postcondition: The note data is securely stored in the database with enc
 Alternate Sequence:
 iii. If encryption fails or access controls are breached, the application informs the user with an error message and does not store the note.
 
-7. Every note must include a timestamp to record the last edit.
-Summary: Each note includes a timestamp to record the last edit.
-Actors: Registered Users and Application
-Pre-conditions: User is logged in and has at least one note in the database.
-Trigger: User edits a note.
-Primary Sequence:
+7. **timestamp last edit** <Iskandar Daoud>
+- **Summary:** Each note includes a timestamp to record the last edit.
+- **Actors:** Registered Users and Application
+- **Pre-conditions:** User is logged in and has at least one note in the database.
+- **Trigger:** User edits a note.
+- **Primary Sequence:**
 i. User selects a note to edit.
 ii. User makes changes to the note content.
 iii. The application automatically updates the timestamp for the note to reflect the current date and time.
-Primary Postcondition: The selected note now includes a timestamp recording the last edit date and time.
-Alternate Sequence:
+- **Primary Postcondition:** The selected note now includes a timestamp recording the last edit date and time.
+- **Alternate Sequence:**
 ii. If the application fails to update the timestamp, the note's timestamp remains unchanged, and the application informs the user with an error message.
 
 
