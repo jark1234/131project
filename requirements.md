@@ -26,7 +26,7 @@
 
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
 
-1. **Users must be able to create an account using email and password** <Novel Alam>
+1. **Create an account using email and password** <Novel Alam>
 - **Summary:** This feature should allow a user to create a new account using an email address and a password. 
 - **Actors:** User and Application
 - **Pre-conditions:** User does not have an existing account with that particular email address.
@@ -44,7 +44,7 @@
 - OR
 - User is prompted to sign in with existing email address and password. 
 
-2. **Users must be able to create a new note** <Novel Alam>
+2. **Create a new note** <Novel Alam>
 - **Summary:** This feature should allow a user to create a new note within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account.
@@ -63,7 +63,7 @@
   - OR
   - The user cancels the note creation, and no new note is saved.
 
-3. **Users must be able to edit existing note** <Novel Alam>
+3. **Edit existing note** <Novel Alam>
 - **Summary:** This feature should allow a user to edit their existing notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -81,7 +81,7 @@
   - OR
   - The user cancels the note editing, and the note remains unchanged.
 
-4. **Users must be able to delete notes** <Novel Alam>
+4. **Delete a note** <Novel Alam>
 - **Summary:** This feature should allow a user to delete their notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -146,7 +146,7 @@
 - 3. The note's timestamp remains unchanged.
 - 4. The application informs the user with an error message.
      
-8. **Notes must be sorted in reverse chronological order** <Natalie Kao>
+8. **Sort notes in reverse chronological order** <Natalie Kao>
 - **Summary:** User’s notes are sorted in reverse chronological order, based on the last edit.
 - **Actors:** User, Application, and Data Storage System
 - **Pre-conditions**: User has opened the notes application and is viewing their list of notes.
@@ -161,7 +161,7 @@
 - 2. There are no notes in the user’s account
 - 5. Application informs user with an error messsage.
  
-9. **Users should be able to customize the theme of the user interface (UI)** <Natalie Kao>
+9. **Customize theme of the user interface (UI)** <Natalie Kao>
 - **Summary:** Users should be able to cutomize the theme of the user interface (UI)
 - **Actors:** User and Application
 - **Pre-conditions:** User has an account and is logged in.
@@ -177,7 +177,7 @@
 - 4. Customization does not change to the correct option or encounters errors
 - 5. Application informs user with an error message.
 
-10. **Users should have the option to adjust the default text size and font.** <Natalie Kao>
+10. **Adjust default text size and font.** <Natalie Kao>
 - **Summary:** Users should have the option to adjust the default text size and font within the application
 - **Actors:** User and Application
 - **Pre-conditions:** The user has an account and is logged in and viewing the application
