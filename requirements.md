@@ -45,9 +45,59 @@
 - User is prompted to sign in with existing email address and password. 
 
 2. **Users must be able to create a new note** <Novel Alam>
+- **Summary:** This feature should allow a user to create a new note within the application.
+- **Actors:** User and Application
+- **Pre-conditions:** User is logged into their account.
+- **Trigger:** User clicks "Create New Note."
+- **Primary Sequence:**
+  1. User clicks on "Create New Note" option.
+  2. User is presented with a blank note-taking interface.
+  3. User enters the title of the note in the designated field.
+  4. User enters the content of the note in the main text area.
+  5. User may apply formatting or categorization to the note 
+  6. User clicks "Save" or "Create" to save the new note.
+- **Alternate Sequence: User cancels note creation**
+  1. At any point before saving, the user can click "Cancel" to exit the note creation process. No note is saved.
+- **Postcondition:**
+  - A new note is created and saved in the user's account with the provided title, content, and any additional options chosen.
+  - OR
+  - The user cancels the note creation, and no new note is saved.
 
 3. **Users must be able to edit existing note** <Novel Alam>
+- **Summary:** This feature should allow a user to edit their existing notes within the application.
+- **Actors:** User and Application
+- **Pre-conditions:** User is logged into their account and has existing notes.
+- **Trigger:** User selects the note they want to edit.
+- **Primary Sequence:**
+  1. User selects the note they want to edit from their list of existing notes.
+  2. The selected note is displayed in an editing interface.
+  3. User can make changes to the title and content of the note.
+  4. User may apply formatting or categorization to the edited note.
+  5. User clicks "Save" to save the changes made to the note.
+- **Alternate Sequence: User cancels note editing**
+  1. At any point during the editing process, the user can click "Cancel" to discard the changes and exit the editing interface.
+- **Postcondition:**
+  - The selected note is updated with the changes made by the user.
+  - OR
+  - The user cancels the note editing, and the note remains unchanged.
+
 4. **Users must be able to delete notes** <Novel Alam>
+- **Summary:** This feature should allow a user to delete their notes within the application.
+- **Actors:** User and Application
+- **Pre-conditions:** User is logged into their account and has existing notes.
+- **Trigger:** User selects the note they want to delete.
+- **Primary Sequence:**
+  1. User selects the note they want to delete from their list of existing notes.
+  2. The selected note is displayed with a "Delete" option.
+  3. User clicks the "Delete" option.
+  4. The application prompts the user for confirmation to delete the note.
+  5. User confirms the deletion.
+- **Alternate Sequence: User cancels note deletion**
+  1. If the user decides not to delete the note, they can cancel the deletion when prompted for confirmation.
+- **Postcondition:**
+  - The selected note is permanently deleted from the user's account.
+  - OR
+  - The user cancels the note deletion, and the note remains in their account.
 
 5. **Restore deleted notes within 30 days** <Iskandar Daoud>
 - **Summary:** Users can restore deleted notes within a 30-day timeframe.
