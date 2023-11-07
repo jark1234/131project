@@ -9,7 +9,8 @@
 8. Notes must be sorted in reverse chronological order.
 9. Users should be able to customize the theme of the user interface (UI).
 10. Users should have the option to adjust the default text size and font.
-11. Application should provide advanced search items with regular expressions or filters by categories
+11. Application should provide advanced search items with regular expressions or filters 
+by categories.
 12. Users should be able to categorize their notes into different folders.
 13. Users should have the ability to export their notes to PDF.
 14. Users should have the option to secure individual notes with a password for added privacy.
@@ -19,9 +20,6 @@
 ## Non-functional Requirements
 1. The application should provide multiligual support.
 2. The application should be compatible with Google Chrome version 118.0.5993.129 or prior.
-
-
-
 
 
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
@@ -115,7 +113,7 @@
 - 5. The note was deleted more than 30 days ago.
 - 6. The application informs the user with a message stating that it cannot be restored.
 
-6. **Notes stored in a database** <Iskandar Daoud>
+6. **Store notes in a database** <Iskandar Daoud>
 - **Summary:** User notes are stored in a secure database with data encryption and access controls.
 - **Actors:** Application and Data Storage System
 - **Pre-conditions:** User is logged in.
