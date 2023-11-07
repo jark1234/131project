@@ -137,16 +137,61 @@
 - **Pre-conditions:** User is logged in and has at least one note in the database.
 - **Trigger:** User edits a note.
 - **Primary Sequence:**
-- 1. User selects a note to edit.
-- 2. User makes changes to the note content.
+-   1. User selects a note to edit.
+-   2. User makes changes to the note content.
 - 3. The application automatically updates the timestamp for the note to reflect the current date and time.
 - **Primary Postcondition:** The selected note now includes a timestamp recording the last edit date and time.
 - **Alternate Sequence:**
 - 2. The application fails to update the timestamp.
 - 3. The note's timestamp remains unchanged.
 - 4. The application informs the user with an error message.
+     
+8. **Notes must be sorted in reverse chronological order** <Natalie Kao>
+- **Summary:** User’s notes are sorted in reverse chronological order, based on the last edit.
+- **Actors:** User, Application, and Data Storage System
+- **Pre-conditions**: User has opened the notes application and is viewing their list of notes.
+- **Trigger**: None
+- **Primary Sequence**:
+- 1. Application requests lists of notes from Data Storage System.
+- 2. Data storage system retrieves user’s notes.
+- 3. Application sorts notes in reverse chronological order, based on timestamp of last edit, with most recently edited notes appearing at the top
+- 4. Sorted list of notes is displayed to the user on the screen
+- **Primary Postcondition:** User sees a list of all their notes sorted in reverse chronological order, with the most recently edited notes at the top, making it easy for them to access and view their latest changes
+- **Alternative Sequence:**
+- 2. There are no notes in the user’s account
+- 5. Application informs user with an error messsage.
+ 
+9. **Users should be able to customize the theme of the user interface (UI)** <Natalie Kao>
+- **Summary:** Users should be able to cutomize the theme of the user interface (UI)
+- **Actors:** User and Application
+- **Pre-conditions:** User has an account and is logged in.
+- **Trigger:** User goes to the “Theme Settings” under Settings option in application.
+- **Primary Sequence:**
+- 1. Application presents a list of available themes/customization options after user selects the “Theme Settings”
+- 2. User selects preferred theme from available selection of colors, dark/light mode, or other UI elements
+- 3. Application applies the selected theme or customization
+- 4. User sees the web application with the newly applied theme/customization
+- **Primary Postcondition:** The user has successfully customized the UI theme to their preference.
+- **Alternative Sequence:**
+- 2. Application doesn’t have customization options/no “Theme Settings” 
+- 4. Customization does not change to the correct option or encounters errors
+- 5. Application informs user with an error message.
 
-
+10. **Users should have the option to adjust the default text size and font.** <Natalie Kao>
+- **Summary:** Users should have the option to adjust the default text size and font within the application
+- **Actors:** User and Application
+- **Pre-conditions:** The user has an account and is logged in and viewing the application
+- **Trigger:** User accesses the Text Setting in the application under Settings
+- **Primary Sequence:**
+- 1. Application presents a menu or interface for adjusting the default text size and font.
+- 2. Users select their preferred text size and font from available options.
+- 3. Application applies chosen text settings to the UI.
+- 4. The user sees text displayed with the new default text size and font.
+- **Primary Postcondition:** The user has successfully adjusted the default text size and font, and the application displays the new text according to the user's preferences.
+- **Alternative Sequence:**
+- 3. Application does not offer text size and font customization.
+- 5. No changes are made and displays a "no results" message. 
+     
 11. **Search for Specific Keywords** <Jaclyn Turner>
 - **Summary:** Users can search for specific keywords or titles within their notes for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
