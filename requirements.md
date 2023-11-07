@@ -9,7 +9,7 @@
 8. Notes must be sorted in reverse chronological order.
 9. Users should be able to customize the theme of the user interface (UI).
 10. Users should have the option to adjust the default text size and font.
-11. Users should have the ability to search for specific keywords inside the notes.
+11. Application should provide advanced search items with regular expressions or filters by categories
 12. Users should be able to categorize their notes into different folders.
 13. Users should have the ability to export their notes to PDF.
 14. Users should have the option to secure individual notes with a password for added privacy.
@@ -17,7 +17,7 @@
 <using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 
 ## Non-functional Requirements
-1. The application should be in American English.
+1. The application should provide multiligual support.
 2. The application should be compatible with Google Chrome version 118.0.5993.129 or prior.
 
 
@@ -118,7 +118,7 @@
 6. **Notes stored in a database** <Iskandar Daoud>
 - **Summary:** User notes are stored in a secure database with data encryption and access controls.
 - **Actors:** Application and Data Storage System
-- **Pre-conditions:** None
+- **Pre-conditions:** User is logged in.
 - **Trigger:** User creates or updates a note.
 - **Primary Sequence:**
 - 1. User creates a new note or updates an existing one.
@@ -192,19 +192,20 @@
 - 3. Application does not offer text size and font customization.
 - 5. No changes are made and displays a "no results" message. 
      
-11. **Search for Specific Keywords** <Jaclyn Turner>
-- **Summary:** Users can search for specific keywords or titles within their notes for quick and efficient access to relevant information.
+11. **Advanced Search with Regular Expressions and Category Filters** <Jaclyn Turner>
+- **Summary:** Users can perform advanced searches on notes using regular expressions or apply category filters to quickly find specific notes within for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User initiates a search within the application by clicking the search bar.
+- **Trigger:** User initiates an advanced search by clicking "Search".
 - **Primary Sequence:**
-- 1. User enters keywords in the search bar.
-- 2. The application searches the database for notes containing the specified keywords.
+- 1. User enter expression in the search bar.
+- 2. The application searches the database for notes containing the specified expression.
+- 3. If using category filters, user selects one or more categoryies for filtering.
 - 3. The application displays a list of matching notes.
 - **Primary Postcondition:** The user can access the notes that match the search criteria.
 - **Alternate Sequence:**
-- 3. No matching notes are found.
-- 4. The application displays a “no results” message.
+- 4. No matching notes are found.
+- 5. The application displays a “no results” message.
 
 12. **Categorize Notes into Folders** <Jaclyn Turner>
 - **Summary:** Users can organize their notes by categorizing them into different folders for better organization and easy retrieval.
