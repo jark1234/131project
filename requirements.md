@@ -16,6 +16,8 @@ by categories.
 14. Users should have the option to secure individual notes with a password for added privacy.
 
 <using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
+## Sketches
+![](https://github.com/jark1234/131project/blob/main/images/ui1.jpg)
 
 ## Non-functional Requirements
 1. The application should provide multiligual support.
