@@ -61,7 +61,7 @@ by categories.
 - **Postcondition:**
   - A new note is created and saved in the user's account with the provided title, content, and any additional options chosen.
   - OR
-  - The user cancels the note creation, and no new note is saved.
+  - The user cancels the note creation, and no new note is saved. 
 
 3. **Edit existing note** <Novel Alam>
 - **Summary:** This feature should allow a user to edit their existing notes within the application.
