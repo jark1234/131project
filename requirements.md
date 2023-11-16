@@ -8,8 +8,8 @@
 7. Users must be able to update their profile name, and picture
 8. Users must be able to save their notes.
 9. Users must be able to customize the theme of the user interface (UI).
-10.Users must have the option to adjust the default text size and font.
-11.Application should provide advanced search items with regular expressions or filters 
+10. Users must have the option to adjust the default text size and font.
+11. Application should provide advanced search items with regular expressions or filters 
 by categories.
 12. Users should be able to categorize their notes into different folders.
 13. Users should have the ability to export their notes to PDF.
