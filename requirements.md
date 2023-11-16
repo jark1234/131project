@@ -3,17 +3,17 @@
 2. Users must be able to create a new note.
 3. Users must be able to edit an existing note.
 4. Users must be able to delete notes.
-5. Users must be able to restore deleted notes within 30 days.
-6. User notes must be stored in a database with robust data encryption and access controls to safeguard data privacy and integrity.
-7. Every note must include a timestamp to record the last edit.
-8. Notes must be sorted in reverse chronological order.
-9. Users should be able to customize the theme of the user interface (UI).
-10. Users should have the option to adjust the default text size and font.
-11. Application should provide advanced search items with regular expressions or filters 
+5. Users must be able to restore deleted notes within 30 days
+6. Users must be able to logout of their account
+7. Users must be able to update their profile name, and picture
+8. Users must be able to save their notes.
+9. Users must be able to customize the theme of the user interface (UI).
+10.Users must have the option to adjust the default text size and font.
+11.Application should provide advanced search items with regular expressions or filters 
 by categories.
 12. Users should be able to categorize their notes into different folders.
 13. Users should have the ability to export their notes to PDF.
-14. Users should have the option to secure individual notes with a password for added privacy.
+14. Users should have the option to secure individual notes with a password.
 
 <using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 ## Sketches
