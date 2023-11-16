@@ -26,7 +26,7 @@ by categories.
 
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
 
-1. **Create an account using email and password** <Novel Alam>
+1. **Create an account using email and password** [Novel Alam]
 - **Summary:** This feature should allow a user to create a new account using an email address and a password. 
 - **Actors:** User and Application
 - **Pre-conditions:** User does not have an existing account with that particular email address.
@@ -44,7 +44,7 @@ by categories.
 - OR
 - User is prompted to sign in with existing email address and password. 
 
-2. **Create a new note** <Novel Alam>
+2. **Create a new note** [Novel Alam]
 - **Summary:** This feature should allow a user to create a new note within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account.
@@ -63,7 +63,7 @@ by categories.
   - OR
   - The user cancels the note creation, and no new note is saved. 
 
-3. **Edit existing note** <Novel Alam>
+3. **Edit existing note** [Novel Alam]
 - **Summary:** This feature should allow a user to edit their existing notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -81,7 +81,7 @@ by categories.
   - OR
   - The user cancels the note editing, and the note remains unchanged.
 
-4. **Delete a note** <Novel Alam>
+4. **Delete a note** [Novel Alam]
 - **Summary:** This feature should allow a user to delete their notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -99,7 +99,7 @@ by categories.
   - OR
   - The user cancels the note deletion, and the note remains in their account.
 
-5. **Restore deleted notes within 30 days** <Iskandar Daoud>
+5. **Restore deleted notes within 30 days** [Iskandar Daoud]
 - **Summary:** Users can restore deleted notes within a 30-day timeframe.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
@@ -115,7 +115,7 @@ by categories.
 - 5. The note was deleted more than 30 days ago.
 - 6. The application informs the user with a message stating that it cannot be restored.
 
-6. **Store notes in a database** <Iskandar Daoud>
+6. **Store notes in a database** [Iskandar Daoud]
 - **Summary:** User notes are stored in a secure database with data encryption and access controls.
 - **Actors:** Application and Data Storage System
 - **Pre-conditions:** User is logged in.
@@ -131,7 +131,7 @@ by categories.
 - 4. The application informs the user with an error message.
 - 5. The application does not store the note.
 
-7. **Timestamp last edit** <Iskandar Daoud>
+7. **Timestamp last edit** [Iskandar Daoud]
 - **Summary:** Each note includes a timestamp to record the last edit.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
@@ -146,7 +146,7 @@ by categories.
 - 3. The note's timestamp remains unchanged.
 - 4. The application informs the user with an error message.
      
-8. **Sort notes in reverse chronological order** <Natalie Kao>
+8. **Sort notes in reverse chronological order** [Natalie Kao]
 - **Summary:** User’s notes are sorted in reverse chronological order, based on the last edit.
 - **Actors:** User, Application, and Data Storage System
 - **Pre-conditions**: User has opened the notes application and is viewing their list of notes.
@@ -161,7 +161,7 @@ by categories.
 - 2. There are no notes in the user’s account
 - 5. Application informs user with an error messsage.
  
-9. **Customize theme of the user interface (UI)** <Natalie Kao>
+9. **Customize theme of the user interface (UI)** [Natalie Kao]
 - **Summary:** Users should be able to cutomize the theme of the user interface (UI)
 - **Actors:** User and Application
 - **Pre-conditions:** User has an account and is logged in.
@@ -177,7 +177,7 @@ by categories.
 - 4. Customization does not change to the correct option or encounters errors
 - 5. Application informs user with an error message.
 
-10. **Adjust default text size and font.** <Natalie Kao>
+10. **Adjust default text size and font.** [Natalie Kao]
 - **Summary:** Users should have the option to adjust the default text size and font within the application
 - **Actors:** User and Application
 - **Pre-conditions:** The user has an account and is logged in and viewing the application
@@ -192,7 +192,7 @@ by categories.
 - 3. Application does not offer text size and font customization.
 - 5. No changes are made and displays a "no results" message. 
      
-11. **Advanced Search with Regular Expressions and Category Filters** <Jaclyn Turner>
+11. **Advanced Search with Regular Expressions and Category Filters** [Jaclyn Turner]
 - **Summary:** Users can perform advanced searches on notes using regular expressions or apply category filters to quickly find specific notes within for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
@@ -207,7 +207,7 @@ by categories.
 - 4. No matching notes are found.
 - 5. The application displays a “no results” message.
 
-12. **Categorize Notes into Folders** <Jaclyn Turner>
+12. **Categorize Notes into Folders** [Jaclyn Turner]
 - **Summary:** Users can organize their notes by categorizing them into different folders for better organization and easy retrieval.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
@@ -222,7 +222,7 @@ by categories.
 - 3. User cancels the folder creation or selection.
 - 4. No changes are made.
 
-13. **Export Notes to PDF** <Jaclyn Turner>
+13. **Export Notes to PDF** [Jaclyn Turner]
 - **Summary:** Users can export their notes to a PDF file for offline access or sharing with others.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
@@ -237,7 +237,7 @@ by categories.
 - 3. Application fails to generate PDF.
 - 4. Application informs user with “Error” message.
 
-14. **Secure Individual Notes with a Password** <Jaclyn Turner>
+14. **Secure Individual Notes with a Password** [Jaclyn Turner]
 - **Summary:** Users can enhance the privacy of specific notes by securing them with a password.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
