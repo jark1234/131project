@@ -3,7 +3,7 @@
 2. Users must be able to create a new note.
 3. Users must be able to edit an existing note.
 4. Users must be able to delete notes.
-5. Users must be able to restore deleted notes within 30 days
+5. Users must be able to bold, italicize, and underline text.
 6. Users must be able to logout of their account
 7. Users must be able to update their profile name, and picture
 8. Users must be able to save their notes.
