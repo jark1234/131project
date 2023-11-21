@@ -38,20 +38,6 @@ requirements 1-6, Iskandar would code 7 and 8, and also write the ethical
 implications, and Jaclyn would code 14 and fill would the README general 
 instructions.
 
-### 2023-11-14 at 11:30
-
-Who attended the meeting: Jaclyn and Novel
-
-Team updates (15min or less): Assigning jobs for milestone 2
-
-pair-programming (optional) (25 mins): NA
-
-Summarize group progress: Determined which 9 functional requirements would
-be implemented first and split up work. Natalie and Novel would code 
-requirements 1-6, Iskandar would code 7 and 8, and also write the ethical  
-implications, and Jaclyn would code 14 and fill would the README general  
-instructions.
-
 ### 2023-11-16 at 11:30
 
 Who attended the meeting: Jaclyn, Novel, Natalie, and Iskandar
