@@ -145,35 +145,34 @@
 - 3. The note's timestamp remains unchanged.
 - 4. The application informs the user with an error message.
      
-8. **Sort notes in reverse chronological order** [Natalie Kao]
-- **Summary:** User’s notes are sorted in reverse chronological order, based on the last edit.
-- **Actors:** User, Application, and Data Storage System
-- **Pre-conditions**: User has opened the notes application and is viewing their list of notes.
-- **Trigger**: None
+8. **User Logout** [Natalie Kao]
+- **Summary:**  This feature allows users to logout of their account. 
+- **Actors:** User
+- **Pre-conditions**: User has an account and is logged in.
+- **Trigger**: User clicks on the “Logout” button in the settings menu.
 - **Primary Sequence**:
-- 1. Application requests lists of notes from Data Storage System.
-- 2. Data storage system retrieves user’s notes.
-- 3. Application sorts notes in reverse chronological order, based on timestamp of last edit, with most recently edited notes appearing at the top
-- 4. Sorted list of notes is displayed to the user on the screen
-- **Primary Postcondition:** User sees a list of all their notes sorted in reverse chronological order, with the most recently edited notes at the top, making it easy for them to access and view their latest changes
+- 1. User goes to the account settings to start the process
+- 2. User clicks on the “logout” button and confirms the logout of the application. 
+- 3. The application returns to the login/home screen
+- **Primary Postcondition:** User is successfully logged out of the application and redirected to the login page.
 - **Alternative Sequence:**
-- 2. There are no notes in the user’s account
-- 5. Application informs user with an error messsage.
- 
-9. **Customize theme of the user interface (UI)** [Natalie Kao]
-- **Summary:** Users should be able to cutomize the theme of the user interface (UI)
-- **Actors:** User and Application
+- 2. User cancels logout option.
+- 4. User remains logged in and stays on the current screen.
+
+9. **Update profile name and picture** [Natalie Kao]
+- **Summary:** Users should be able to change and update their profile name and picture.
+- **Actors:** User 
 - **Pre-conditions:** User has an account and is logged in.
-- **Trigger:** User goes to the “Theme Settings” under Settings option in application.
+- **Trigger:** User goes to the “Profile” section under Settings option in application.
 - **Primary Sequence:**
-- 1. Application presents a list of available themes/customization options after user selects the “Theme Settings”
-- 2. User selects preferred theme from available selection of colors, dark/light mode, or other UI elements
-- 3. Application applies the selected theme or customization
-- 4. User sees the web application with the newly applied theme/customization
-- **Primary Postcondition:** The user has successfully customized the UI theme to their preference.
+- 1. User navigates to the profile section under settings. 
+- 2. User selects the “Edit Profile” button.
+- 3 .User is able to edit information and also change profile picture and save it using the “Save” option.
+- 4. User is redirected to their profile page.
+preference.
+**Primary Postcondition:** The user has successfully changed their profile picture and information and the updated profile information is shown on the screen. 
 - **Alternative Sequence:**
-- 2. Application doesn’t have customization options/no “Theme Settings” 
-- 4. Customization does not change to the correct option or encounters errors
+- 3. User enters an already existing profile username. 
 - 5. Application informs user with an error message.
 
 10. **Adjust default text size and font.** [Natalie Kao]
