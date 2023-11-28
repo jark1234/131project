@@ -98,21 +98,22 @@
   - OR
   - The user cancels the note deletion, and the note remains in their account.
 
-5. **Restore deleted notes within 30 days** [Iskandar Daoud]
-- **Summary:** Users can restore deleted notes within a 30-day timeframe.
-- **Actors:** Registered Users and Application
+5. **Format Text: Bold, Italicize, and Underline** [Iskandar Daoud]
+- **Summary:** Users can apply formatting options (bold, italic, underline) to selected text in their notes.
+- **Actors:** Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User selects a deleted note to restore.
+- **Trigger:**  User opens note
 - **Primary Sequence:**
-- 1. User navigates to the "Trash" or "Deleted Notes" section.
-- 2. User selects a deleted note they want to restore.
-- 3. User clicks "Restore within 30 days."
-- 4. The application checks if the note was deleted within the last 30 days.
-- 5. The note was deleted within the last 30 days, the application restores the note to the user's notes list.
-- **Primary Postcondition:** The deleted note is successfully restored to the user's notes list.
-- **Alternate Sequence:**
-- 5. The note was deleted more than 30 days ago.
-- 6. The application informs the user with a message stating that it cannot be restored.
+- 1. User highlights a portion of text in the note.
+- 2. The application displays a formatting toolbar with options for bold, italic, and underline.
+- 3. User clicks the "Bold" button on the toolbar.
+- 4. User clicks the "Italic" button on the toolbar.
+- 5. The application applies the italic style to the selected text.
+- 6. User clicks the "Underline" button on the toolbar.
+- 7. The application applies the underline style to the selected text.
+- **Primary Postcondition:** The selected text is formatted with bold, italic, and underline styles as per the user's actions.
+- **Alternate Sequence:** Formatting error
+- 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
 
 6. **Store notes in a database** [Iskandar Daoud]
 - **Summary:** User notes are stored in a secure database with data encryption and access controls.
