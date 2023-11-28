@@ -115,21 +115,19 @@
 - **Alternate Sequence:** Formatting error
 - 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
 
-6. **Store notes in a database** [Iskandar Daoud]
-- **Summary:** User notes are stored in a secure database with data encryption and access controls.
-- **Actors:** Application and Data Storage System
-- **Pre-conditions:** User is logged in.
-- **Trigger:** User creates or updates a note.
+6. **Save Notes** [Iskandar Daoud]
+- **Summary:** Users can save changes made to their notes.
+- **Actors:** Users and Application
+- **Pre-conditions:** User is logged in and has one note in the database.
+- **Trigger:** User makes edit to note.
 - **Primary Sequence:**
-- 1. User creates a new note or updates an existing one.
-- 2. The application sends the note data to the database.
-- 3. The database encrypts the note data using robust encryption methods.
+- 1. User clicks the "Save" button.
+- 2. The application validates the note data.
+- 3. The application saves the changes to the note.
 - 4. The database stores the encrypted note data and enforces access controls to protect data privacy and integrity.
-- **Primary Postcondition:** The note data is securely stored in the database with encryption and access controls to safeguard data privacy and integrity.
-- **Alternate Sequence:**
-- 3. The encryption fails or access controls are breached.
-- 4. The application informs the user with an error message.
-- 5. The application does not store the note.
+- **Primary Postcondition:** The changes made to the note are successfully saved.
+- **Alternate Sequence:** Saving error
+- 3. If the application encounters an issue during the saving process, it informs the user with an error message, and the changes are not saved.
 
 7. **Timestamp last edit** [Iskandar Daoud]
 - **Summary:** Each note includes a timestamp to record the last edit.
