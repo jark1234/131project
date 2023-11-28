@@ -47,24 +47,32 @@
       </form>
 
       {% for note in user_notes %}
-      <div class="border rounded p-4 mb-4">
-        <h2 class="text-lg font-bold">{{ note.title }}</h2>
-        <div class="text-content">{{ note.data }}</div>
-        <p class="text-sm text-gray-700">{{ note.date }}</p>
-        <a
-          href="{{ url_for('edit_note', note_id=note.id) }}"
-          class="bg-gray-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Edit
-        </a>
-        <form method="POST" action="/delete_note/{{ note.id }}">
-          <button
-            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
+      <div class="border rounded p-4 mb-4 flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold">{{ note.title }}</h2>
+          <div class="text-content">{{ note.data }}</div>
+          <p class="text-sm text-gray-700">{{ note.date }}</p>
+        </div>
+        <div class="flex space-x-2">
+          <a
+            href="{{ url_for('edit_note', note_id=note.id) }}"
+            class="bg-gray-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline"
           >
-            Delete
-          </button>
-        </form>
+            Edit
+          </a>
+          <form
+            method="POST"
+            action="/delete_note/{{ note.id }}"
+            class="inline"
+          >
+            <button
+              class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline"
+              type="submit"
+            >
+              Delete
+            </button>
+          </form>
+        </div>
       </div>
       {% endfor %}
     </div>
