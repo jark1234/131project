@@ -24,20 +24,16 @@ def login():
     if current_form.validate_on_submit():
         email = current_form.email.data
         user = User.query.filter_by(email=email).first()
-        
-        if user:
-            # Debug output
-            print(f"Entered Email: {email}")
-            print(f"Retrieved User: {user.email}") 
-            print(f"Stored Password Hash: {user.password}")
 
         if user and check_password_hash(user.password, current_form.password.data):
-            print(f"Entered Password: {current_form.password.data}")
             print("Password Matched!")
             login_user(user, remember=current_form.remember_me.data)
             return redirect('/create_note')
+        else:
+            errorMessage = 'Invalid email or password. Please try again.'
 
     return render_template('login.html', current_form=current_form, error=errorMessage)
+
 
 @myapp_obj.route('/create_account', methods=['GET', 'POST'])
 def create_account():
