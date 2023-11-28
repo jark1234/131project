@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(100), nullable=False)
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default = func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

@@ -2,10 +2,11 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from datetime import datetime
 
 users = {'novel': 'alam'}  
 
@@ -34,13 +35,9 @@ def login():
             print(f"Entered Password: {current_form.password.data}")
             print("Password Matched!")
             login_user(user, remember=current_form.remember_me.data)
-            return redirect('/welcome')
+            return redirect('/create_note')
 
     return render_template('login.html', current_form=current_form, error=errorMessage)
-
-@myapp_obj.route('/welcome')
-def welcome():
-    return render_template('welcome.html')
 
 @myapp_obj.route('/create_account', methods=['GET', 'POST'])
 def create_account():
@@ -72,20 +69,56 @@ def create_account():
 
     return render_template('create_account.html',form=current_form, error = errorMessage)
 
-@myapp_obj.route('/create.note', methods=['POST'])
+@myapp_obj.route('/create_note', methods=['GET', 'POST'])
+@login_required
 def create_note():
-    note_text = request.form['note_text']
-    new_note = Note(text=note_text)
-    db.session.add(new_note)
-    db.session.commit()
-    return redirect(url_for('welcome'))
+    current_form = CreateNoteForm()
+
+    if current_form.validate_on_submit():
+        note_title = current_form.title.data
+        note_text = current_form.text.data
+
+        if note_title.strip() and note_text.strip():
+            new_note = Note(title=note_title, data=note_text, user_id=current_user.id )
+            db.session.add(new_note)
+            db.session.commit()
+            
+    user_notes = Note.query.filter_by(user_id=current_user.id).order_by(Note.date.desc()).all()
+    return render_template('create_note.html', current_form=current_form, user_notes=user_notes)
+
 
 @myapp_obj.route('/delete_note/<int:note_id>', methods=['POST'])
+@login_required
 def delete_note(note_id):
+    current_form = DeleteNoteForm()
     note = Note.query.get_or_404(note_id)
     db.session.delete(note)
     db.session.commit()
-    return redirect(url_for('welcome'))
+    return redirect(url_for('create_note'))
+
+@myapp_obj.route('/edit_note/<int:note_id>', methods=['GET', 'POST'])
+@login_required
+def edit_note(note_id):
+    edit_form = EditNoteForm()
+    note = Note.query.get_or_404(note_id)
+
+    if edit_form.validate_on_submit():
+        note.title = edit_form.title.data
+        note.text = edit_form.text.data
+        note.date = datetime.utcnow()
+        db.session.commit()
+        return redirect(url_for('create_note'))
+    else:
+        # Populate the form with existing note data
+        edit_form.note_id.data = note.id
+        edit_form.title.data = note.title
+        edit_form.text.data = note.data
+
+    
+    return render_template('edit_note.html', edit_form=edit_form, note=note)
+
+
+
 
 def load_notes():
     global notes 
