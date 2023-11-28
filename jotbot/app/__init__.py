@@ -8,14 +8,16 @@ myapp_obj = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 myapp_obj.config.update(
-    SECRET_KEY='secret',
+    SECRET_KEY='testkey',
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db'),
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 )
 db = SQLAlchemy(myapp_obj)
 
 login = LoginManager(myapp_obj)
-
 login.login_view = 'login'
 
-from app import routes, models
+from . import routes, models
+
+with myapp_obj.app_context():
+    db.create_all()
