@@ -14,7 +14,6 @@
 13. Users should have the ability to export their notes to PDF.
 14. Users should have the option to secure individual notes with a password.
 
-<using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 ## Sketches
 ![](https://github.com/jark1234/131project/blob/main/images/ui1.jpg)
 
