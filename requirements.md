@@ -129,20 +129,19 @@
 - **Alternate Sequence:** Saving error
 - 3. If the application encounters an issue during the saving process, it informs the user with an error message, and the changes are not saved.
 
-7. **Timestamp last edit** [Iskandar Daoud]
-- **Summary:** Each note includes a timestamp to record the last edit.
-- **Actors:** Registered Users and Application
-- **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User edits a note.
+7. **Switch between Dark and Light Mode** [Iskandar Daoud]
+- **Summary:** Users can toggle between dark and light modes for the application interface.
+- **Actors:** Users and Application
+- **Pre-conditions:** User is logged in.
+- **Trigger:** User clicks on the settings menu.
 - **Primary Sequence:**
--   1. User selects a note to edit.
--   2. User makes changes to the note content.
-- 3. The application automatically updates the timestamp for the note to reflect the current date and time.
-- **Primary Postcondition:** The selected note now includes a timestamp recording the last edit date and time.
-- **Alternate Sequence:**
-- 2. The application fails to update the timestamp.
-- 3. The note's timestamp remains unchanged.
-- 4. The application informs the user with an error message.
+- 1. User selects the "Mode" option.
+- 2. Application prompts users for “Light” or “Dark” mode.
+- 3. User selects the mode.
+- 4. The application switches to selected mode.
+- **Primary Postcondition:** The application interface is now in selected mode.
+- **Alternate Sequence:** Mode switching error
+- 4. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
      
 8. **Sort notes in reverse chronological order** [Natalie Kao]
 - **Summary:** User’s notes are sorted in reverse chronological order, based on the last edit.
