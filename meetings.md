@@ -80,4 +80,3 @@ were not visible due to the use of <>.
 - Summarize group progress: Natalie and Novel are finishing up coding 
 their 6 requirements. Iskandar is writing ethical implications and Jaclyn 
 is working on the README. Finishing milestone 2.
->>>>>>> 309925193a0b8a7917376518cdaa75c2b87ffd14
