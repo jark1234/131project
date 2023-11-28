@@ -40,6 +40,7 @@ instructions.
 
 ### 2023-11-16 at 11:30
 
+<<<<<<< HEAD
 Who attended the meeting: Jaclyn, Novel, Natalie, and Iskandar
 
 Team updates (15min or less): Received NR for milestone 1
@@ -53,3 +54,30 @@ responsible for those requirements use cases made the necessary updates.
 Natalie also will add more detail and interaction in her sketches. 
 Additional comments were that assigned names on use cases and meetings 
 were not visible due to the use of <>.
+=======
+- Who attended the meeting: Jaclyn, Novel, Natalie, and Iskandar
+- 
+- Team updates (15min or less): Received NR for milestone 1
+- 
+- pair-programming (optional) (25 mins): NA
+- 
+- Summarize group progress: We dicscussed comments regarding our NR. Some of 
+- our functional requirements were actually non-functional requirements and 
+- needed revising. We changed requirements 6,7,8,9 and those who were 
+- responsible for those requirements use cases made the necessary updates. 
+- Natalie also will add more detail and interaction in her sketches. 
+- Additional comments were that assigned names on use cases and meetings 
+- were not visible due to the use of <>.
+
+### 2023-11-27 at 17:30
+
+- Who attended the meeting: Jaclyn Novel, Natalie, and Iskandar
+-
+- Team updates (15min or less): Finishing project
+- 
+- pair-programming (optional) (25 mins): NA
+- 
+- Summarize group progress: Natalie and Novel are finishing up coding 
+their 6 requirements. Iskandar is writing ethical implications and Jaclyn 
+is working on the README. Finishing milestone 2.
+>>>>>>> 309925193a0b8a7917376518cdaa75c2b87ffd14
