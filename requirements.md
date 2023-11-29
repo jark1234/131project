@@ -7,11 +7,11 @@
 6. Users must be able to save their notes.
 7. Users must be able to select dark or light mode.
 8. Users must be able to logout of their account.
-9. Users must be able to update their profile name and picture.
+9. Users must be able to update their profile name.
 10. Users must have the option to adjust the default text size and font.
 11. Application should provide advanced search items with regular expressions or filters by categories.
-12. Users should be able to categorize their notes into different folders.
-13. Users should have the ability to export their notes to PDF.
+12. Application should provide a timestamp for note creation.
+13. Users should have the ability to permanently delete their account.
 14. Users should have the option to secure individual notes with a password.
 
 ## Sketches
@@ -143,34 +143,33 @@
 - 4. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
      
 8. **User logout** [Natalie Kao]
-- **Summary:** This feature allows users to logout of their account.
-- **Actors:** User
+- **Summary:** Registered users can log out of the application to end their current session securely.
+- **Actors:** User and Application
 - **Pre-conditions**: User has an account and is logged in.
-- **Trigger**: User clicks on the “Logout” button in the settings menu.
+- **Trigger**: User decides to log out of the application.
 - **Primary Sequence**:
-- 1. User goes to the account settings to start the process
-- 2. User clicks on the “logout” button and confirms the logout of the application. 
+- 1. User navigates to the user settings section.
+- 2. User clicks on the “logout” button. 
 - 3. The application returns to the login/home screen
 - **Primary Postcondition:** User is successfully logged out of the application and redirected to the login page.
 - **Alternative Sequence:**
 - 2. User cancels logout option.
 - 4. User remains logged in and stays on the current screen.
  
-9. **Update profile name and picture** [Natalie Kao]
-- **Summary:** Users should be able to change and update their profile name and picture.
-- **Actors:** User 
+9. **Update profile name** [Natalie Kao]
+- **Summary:** Registered users can update their profile name to keep their personal information accurate and reflective of any changes.
+- **Actors:** User and Application
 - **Pre-conditions:** User has an account and is logged in. 
-- **Trigger:** User goes to the “Profile” section under Settings option in application.
+- **Trigger:** The user decides to update their profile name.
 - **Primary Sequence:**
-- 1. User navigates to the profile section under settings. 
-- 2. User selects the “Edit Profile” button.
-- 3. User is able to edit information and also change profile picture and save it using the “Save” option.
-- 4. User is redirected to their profile page.
-- **Primary Postcondition:** The user has successfully changed their profile picture and information and the updated profile information is shown on the screen.
+- 1. User navigates to the profile settings section.
+- 2. User selects the option to edit profile name.
+- 3. User updates the profile name with the desired changes.
+- 4. User clicked "Save" to save the updated profile information.
+- **Primary Postcondition:** The user's profile name is successfully updated with the new information.
 - **Alternative Sequence:**
-- 3. User uploads an image that is not in a supported format.
-- 3. User enters an already existing profile username.
-- 5. User is displayed an error message when trying to click “Save”.
+- 4. User aborts save.
+- 5. Application doesn't update profile name.
 
 10. **Adjust default text size and font.** [Natalie Kao]
 - **Summary:** Users should have the option to adjust the default text size and font within the application
@@ -195,42 +194,42 @@
 - **Primary Sequence:**
 - 1. User enter expression in the search bar.
 - 2. The application searches the database for notes containing the specified expression.
-- 3. If using category filters, user selects one or more categoryies for filtering.
+- 3. If using category filters, user selects one or more categories for filtering.
 - 3. The application displays a list of matching notes.
 - **Primary Postcondition:** The user can access the notes that match the search criteria.
 - **Alternate Sequence:**
 - 4. No matching notes are found.
 - 5. The application displays a “no results” message.
 
-12. **Categorize Notes into Folders** [Jaclyn Turner]
-- **Summary:** Users can organize their notes by categorizing them into different folders for better organization and easy retrieval.
+12. **Timestamp Note Creation** [Jaclyn Turner]
+- **Summary:** The application automatically timestamps the creation of a note to provide users with a record of when each note was created.
 - **Actors:** Registered Users and Application
-- **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User chooses to create a new folder or edit existing ones.
+- **Pre-conditions:** User is logged in to the application.
+- **Trigger:** The user initiates the creation of a new note.
 - **Primary Sequence:**
-- 1. User navigates to the folder management section.
-- 2. User creates a new folder or selects an existing one.
-- 3. User assigns notes to the selected folder.
-- 4. Notes are organized accordingly.
-- **Primary Postcondition:** The user's notes are organized into folders for easy management.
+- 1. User selects option to create a new note.
+- 2. The application presents an empty note interface.
+- 3. User enters the content of the note.
+- 4. The application automatically generates and associates a timestamp with the note, reflecting the date and time of its creation.
+- 5. User saves the note.
+- **Primary Postcondition:** The note is successfully created, and a timestamp is associated with it, indicating the date and time of its creation.
 - **Alternate Sequence:**
-- 3. User cancels the folder creation or selection.
-- 4. No changes are made.
+- 5. User doesn't save note.
+- 6. Note isn't created or timestamped.
 
-13. **Export Notes to PDF** [Jaclyn Turner]
-- **Summary:** Users can export their notes to a PDF file for offline access or sharing with others.
+13. **Delete Account** [Jaclyn Turner]
+- **Summary:** Registered users can initiate the process of permanently deleting their account from the application.
 - **Actors:** Registered Users and Application
-- **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User chooses to export a note to PDF.
+- **Pre-conditions:** User is logged in to application.
+- **Trigger:** The user decides to delete their account.
 - **Primary Sequence:**
-- 1. User selects a note to export.
-- 2. User click “Export as a PDF”.
-- 3. The application generates a PDF file containing the selected note's content.
-- 4. User downloads or saves the PDF file.
-- **Primary Postcondition:** The user has a downloadable PDF copy of the selected note.
+- 1. User navigates to the account settings section.
+- 2. User clicks "Delete account".
+- 3. The application permanently deletes the user account.
+- **Primary Postcondition:** The user's account is successfully deleted from the application, and all associated data is permanently removed.
 - **Alternate Sequence:**
-- 3. Application fails to generate PDF.
-- 4. Application informs user with “Error” message.
+- 3. The system displays an error message.
+- 4. The application doesn't delete the user's account.
 
 14. **Secure Individual Notes with a Password** [Jaclyn Turner]
 - **Summary:** Users can enhance the privacy of specific notes by securing them with a password.
@@ -240,11 +239,10 @@
 - **Primary Sequence:**
 - 1. User selects a note to secure.
 - 2. User clicks "Secure with Password".
-- 3. The application prompts user for password and confirmation.
-- 4. User enters and confirms a password for the note.
+- 3. The application prompts user for password.
+- 4. User enters password for the note.
 - 5. The application encrypts the note with the provided password.
 - **Primary Postcondition:** The selected note is secured with a password, and only users with the correct password can access it.
 - **Alternate Sequence:**
-- 4. User unable to confirm password for the note.
-- 5. Application informs user with “Passwords do not match” message.
-- 6. Application prompts user to re-enter and confirm password for the note.
+- 4. Application fails to encrypt the note with the password.
+- 5. Application informs user with “encryption fail" error.
