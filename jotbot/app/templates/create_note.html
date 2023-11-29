@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Notes App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mx-auto py-4">
+      <h1 class="text-2xl font-bold mb-4">My Notes</h1>
+
+      <form method="POST" action="{{url_for('create_note')}}">
+        {{ current_form.hidden_tag() }} {% if current_form.edit_note_id %}
+        <input
+          type="hidden"
+          name="edit_note_id"
+          value="{{ current_form.edit_note_id }}"
+        />
+        {% endif %}
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="title"
+            >Title</label
+          >
+          {{ current_form.title(class="shadow appearance-none border rounded
+          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+          focus:shadow-outline") }}
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="text"
+            >Text</label
+          >
+          {{ current_form.text(class="shadow appearance-none border rounded
+          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+          focus:shadow-outline") }}
+        </div>
+
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Add Note
+        </button>
+      </form>
+
+      {% for note in user_notes %}
+      <div class="border rounded p-4 mb-4 flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold">{{ note.title }}</h2>
+          <div class="text-content">{{ note.data }}</div>
+          <p class="text-sm text-gray-700">{{ note.date }}</p>
+        </div>
+        <div class="flex space-x-2">
+          <a
+            href="{{ url_for('edit_note', note_id=note.id) }}"
+            class="bg-gray-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline"
+          >
+            Edit
+          </a>
+          <form
+            method="POST"
+            action="/delete_note/{{ note.id }}"
+            class="inline"
+          >
+            <button
+              class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline"
+              type="submit"
+            >
+              Delete
+            </button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

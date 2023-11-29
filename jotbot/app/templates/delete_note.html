@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delete Note</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mx-auto py-4">
+      <h1 class="text-2xl font-bold mb-4">Delete Note</h1>
+
+      <div class="border rounded p-4 mb-4">
+        <h2 class="text-lg font-bold">{{ note.title }}</h2>
+        <div class="text-content">{{ note.data }}</div>
+        <p class="text-sm text-gray-700">{{ note.date }}</p>
+        <form
+          method="POST"
+          action="{{ url_for('delete_note', note_id=note.id) }}"
+        >
+          <button
+            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Confirm Delete
+          </button>
+        </form>
+      </div>
+
+      <a
+        href="{{ url_for('create_note') }}"
+        class="text-blue-500 hover:underline"
+        >Back to Notes</a
+      >
+    </div>
+  </body>
+</html>
