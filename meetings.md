@@ -74,7 +74,7 @@ is working on the README.
   
 - pair-programming (optional) (25 mins): NA
   
-- Summarize group progress: Team working to fix requirements. Jaclyn finishing README and Natalie editing the format of the homepage.
+- Summarize group progress: Team working to fix requirements. Jaclyn finishing README and Natalie editing the format of the homepage. Natalie is working to fix the file structure in github.
 
 ### 2023-11-28 at 16:00
 
