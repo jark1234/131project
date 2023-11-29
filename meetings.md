@@ -58,10 +58,30 @@ were not visible due to the use of <>.
 
 - Who attended the meeting: Jaclyn Novel, Natalie, and Iskandar
 
-- Team updates (15min or less): Finishing project
+- Team updates (15min or less): Milestone 2
   
 - pair-programming (optional) (25 mins): NA
   
 - Summarize group progress: Natalie and Novel are finishing up coding 
 their 6 requirements. Iskandar is writing ethical implications and Jaclyn 
-is working on the README. Finishing milestone 2. 
+is working on the README.
+
+### 2023-11-28 at 10:45
+
+- Who attended the meeting: Jaclyn Novel, Natalie, and Iskandar
+
+- Team updates (15min or less): Milestone 2
+  
+- pair-programming (optional) (25 mins): NA
+  
+- Summarize group progress: Team working to fix requirements. Jaclyn finishing README and Natalie editing the format of the homepage.
+
+### 2023-11-28 at 16:00
+
+- Who attended the meeting: Jaclyn Novel, Natalie
+
+- Team updates (15min or less): Milestone 2
+  
+- pair-programming (optional) (25 mins): NA
+  
+- Summarize group progress: Natalie, Novel and Jaclyn met to discuss finish requirement changes and codes to implement for milestone 2. Natalie will implement requirement 8, Jaclyn will implement 14, and will also update the requirements file with appropriate use cases.
