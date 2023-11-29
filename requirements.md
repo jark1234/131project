@@ -22,7 +22,7 @@
 2. The application should be compatible with Google Chrome version 118.0.5993.129 or prior.
 
 
-## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
+## Use Cases
 
 1. **Create an account using email and password** [Novel Alam]
 - **Summary:** This feature should allow a user to create a new account using an email address and a password. 
