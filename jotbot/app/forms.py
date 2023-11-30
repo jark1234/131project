@@ -36,7 +36,7 @@ class DeleteNoteForm(FlaskForm):
     note_id = HiddenField('Note ID')
     submit = SubmitField('Delete')
 
-class Delete_Account_Form(FlaskForm):
+class DeleteAccountForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit= SubmitField('Delete Account')
 

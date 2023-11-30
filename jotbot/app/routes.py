@@ -2,7 +2,7 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm, DeleteAccountForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -164,7 +164,7 @@ def save_notes():
 @myapp_obj.route('/delete_account', methods=['GET', 'POST'])
 @login_required
 def delete_account():
-    delete_account_form = Delete_Account_Form()
+    delete_account_form = DeleteAccountForm()
 
     if delete_account_form.validate_on_submit():
         provided_password = delete_account_form.password.data
