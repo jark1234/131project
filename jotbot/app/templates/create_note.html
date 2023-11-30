@@ -27,22 +27,53 @@
         />
         {% endif %}
 
-      <div class="mb-4">
-        <label class="block text-gray-700 font-bold mb-2" for="title">Title</label>
-        {{ current_form.title(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
-      </div>
-
-      <div class="mb-4">
-        <label class="block text-gray-700 font-bold mb-2" for="text">Text</label>
-        <!-- Updated contenteditable div with formatting buttons -->
-        <div class="flex mb-2">
-          <button id="boldBtn" type="button" class="mr-2 font-bold" onclick="applyFormatting('bold')">B</button>
-          <button id="italicBtn" type="button" class="mr-2 italic" onclick="applyFormatting('italic')">I</button>
-          <button id="underlineBtn" type="button" class="underline" onclick="applyFormatting('underline')">U</button>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="title"
+            >Title</label
+          >
+          {{ current_form.title(class="shadow appearance-none border rounded
+          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+          focus:shadow-outline") }}
         </div>
-        <div class="border rounded px-3 py-2" contenteditable="true" id="noteText"></div>
-        <input type="hidden" name="text" id="hiddenText">
-      </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="text"
+            >Text</label
+          >
+          <!-- Updated contenteditable div with formatting buttons -->
+          <div class="flex mb-2">
+            <button
+              id="boldBtn"
+              type="button"
+              class="mr-2 font-bold"
+              onclick="applyFormatting('bold')"
+            >
+              B
+            </button>
+            <button
+              id="italicBtn"
+              type="button"
+              class="mr-2 italic"
+              onclick="applyFormatting('italic')"
+            >
+              I
+            </button>
+            <button
+              id="underlineBtn"
+              type="button"
+              class="underline"
+              onclick="applyFormatting('underline')"
+            >
+              U
+            </button>
+          </div>
+          <div
+            class="border rounded px-3 py-2"
+            contenteditable="true"
+            id="noteText"
+          ></div>
+          <input type="hidden" name="text" id="hiddenText" />
+        </div>
 
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -59,9 +90,6 @@
           Delete Account
         </button>
       </form>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Add Note</button>
-    </form>
-
       {% for note in user_notes %}
       <div class="border rounded p-4 mb-4 flex justify-between items-center">
         <div>
@@ -78,7 +106,7 @@
           </a>
           <form
             method="POST"
-            action="/delete_note/{{ note.id }}"
+            action="{{ url_for('delete_note', note_id=note.id) }}"
             class="inline"
           >
             <button
@@ -90,37 +118,43 @@
           </form>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
 
-  <script>
-    function applyFormatting(command) {
-      const div = document.getElementById("noteText");
-      const selection = window.getSelection();
-      const range = selection.getRangeAt(0);
-      const selectedText = range.toString();
+    <script>
+      function applyFormatting(command) {
+        const div = document.getElementById("noteText");
+        const hiddenText = document.getElementById("hiddenText");
 
-      let newNode;
+        const selection = window.getSelection();
+        const range = selection.getRangeAt(0);
+        const selectedText = range.toString();
 
-      switch (command) {
-        case 'bold':
-          newNode = document.createElement("b");
-          break;
-        case 'italic':
-          newNode = document.createElement("i");
-          break;
-        case 'underline':
-          newNode = document.createElement("u");
-          break;
-        default:
-          break;
+        let newNode;
+
+        switch (command) {
+          case "bold":
+            newNode = document.createElement("b");
+            break;
+          case "italic":
+            newNode = document.createElement("i");
+            break;
+          case "underline":
+            newNode = document.createElement("u");
+            break;
+          case "regular":
+            newNode = document.createElement("span");
+            break;
+          default:
+            break;
+        }
+
+        newNode.appendChild(document.createTextNode(selectedText));
+        range.deleteContents();
+        range.insertNode(newNode);
+
+        hiddenText.value = div.innerHTML;
       }
-
-      newNode.appendChild(document.createTextNode(selectedText));
-      range.deleteContents();
-      range.insertNode(newNode);
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>

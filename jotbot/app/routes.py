@@ -84,6 +84,7 @@ def create_note():
             new_note = Note(title=note_title, data=note_text, user_id=current_user.id, date=pst_now )
             db.session.add(new_note)
             db.session.commit()
+            return redirect(url_for('create_note'))
         
         flash('Note successfully added', 'success')  # Add this line to display a flash message
 
