@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Edit Note</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" />
 </head>
 <body>
@@ -17,7 +18,7 @@
 
       <div class="mb-4">
         <label class="block text-gray-700 font-bold mb-2" for="text">Text</label>
-        <div class="border rounded px-3 py-2" contenteditable="true" id="editNoteText"></div>
+        <div id="editor" style="height: 300px;"></div>
         <input type="hidden" name="text" id="hiddenText">
       </div>
 
@@ -29,5 +30,16 @@
     <a href="{{ url_for('create_note') }}" class="text-blue-500 hover:underline">Cancel</a>
   </div>
 
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script>
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+
+    var hiddenText = document.querySelector('input[name="text"]');
+    quill.on('text-change', function() {
+      hiddenText.value = quill.root.innerHTML;
+    });
+  </script>
 </body>
 </html>
