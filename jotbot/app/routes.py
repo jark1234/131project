@@ -2,9 +2,11 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+
+import pytz
 
 from datetime import datetime
 
@@ -75,10 +77,16 @@ def create_note():
         note_text = current_form.text.data
 
         if note_title.strip() and note_text.strip():
-            new_note = Note(title=note_title, data=note_text, user_id=current_user.id )
+            utc_now = datetime.utcnow()
+            timezone = pytz.utc
+            pst_timezone = pytz.timezone('US/Pacific')
+            pst_now = utc_now.replace(tzinfo=timezone).astimezone(pst_timezone)
+            new_note = Note(title=note_title, data=note_text, user_id=current_user.id, date=pst_now )
             db.session.add(new_note)
             db.session.commit()
-            
+        
+        flash('Note successfully added', 'success')  # Add this line to display a flash message
+
     user_notes = Note.query.filter_by(user_id=current_user.id).order_by(Note.date.desc()).all()
     return render_template('create_note.html', current_form=current_form, user_notes=user_notes)
 
@@ -101,7 +109,7 @@ def edit_note(note_id):
     if edit_form.validate_on_submit():
         note.title = edit_form.title.data
         note.text = edit_form.text.data
-        note.date = datetime.utcnow()
+        note.date = datetime.now()
         db.session.commit()
         return redirect(url_for('create_note'))
     else:
@@ -113,9 +121,14 @@ def edit_note(note_id):
     
     return render_template('edit_note.html', edit_form=edit_form, note=note)
 
-
-
-
+@myapp_obj.route('/logout')
+@login_required
+def logout():
+    logout_form = LogoutForm()
+    logout_user()
+    return redirect(url_for('login'))
+    
+    
 def load_notes():
     global notes 
     try:

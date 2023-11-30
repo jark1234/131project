@@ -1,4 +1,5 @@
 ## Functional Requirements
+
 1. Users must be able to create an account using email and password.
 2. Users must be able to create a new note.
 3. Users must be able to edit an existing note.
@@ -15,17 +16,20 @@
 14. Users should have the option to secure individual notes with a password.
 
 ## Sketches
+
 ![](https://github.com/jark1234/131project/blob/main/images/ui1.jpg)
 
 ## Non-functional Requirements
+
 1. The application should provide multiligual support.
 2. The application should be compatible with Google Chrome version 118.0.5993.129 or prior.
-
 
 ## Use Cases
 
 1. **Create an account using email and password** [Novel Alam]
-- **Summary:** This feature should allow a user to create a new account using an email address and a password. 
+1. **Create an account using email and password** [Novel Alam]
+
+- **Summary:** This feature should allow a user to create a new account using an email address and a password.
 - **Actors:** User and Application
 - **Pre-conditions:** User does not have an existing account with that particular email address.
 - **Trigger:** User clicks "Create New Account."
@@ -37,12 +41,14 @@
 - 5. User clicks "Create Account"
 - **Alternate Sequence: User enters an email that is already in use**
 - 1. User is prompted to sign in with existing email address
-- **Postcondition:** 
+- **Postcondition:**
 - A new account is created with respective email address and password.
 - OR
-- User is prompted to sign in with existing email address and password. 
+- User is prompted to sign in with existing email address and password.
 
 2. **Create a new note** [Novel Alam]
+3. **Create a new note** [Novel Alam]
+
 - **Summary:** This feature should allow a user to create a new note within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account.
@@ -52,16 +58,18 @@
   2. User is presented with a blank note-taking interface.
   3. User enters the title of the note in the designated field.
   4. User enters the content of the note in the main text area.
-  5. User may apply formatting or categorization to the note 
+  5. User may apply formatting or categorization to the note
   6. User clicks "Save" or "Create" to save the new note.
 - **Alternate Sequence: User cancels note creation**
   1. At any point before saving, the user can click "Cancel" to exit the note creation process. No note is saved.
 - **Postcondition:**
   - A new note is created and saved in the user's account with the provided title, content, and any additional options chosen.
   - OR
-  - The user cancels the note creation, and no new note is saved. 
+  - The user cancels the note creation, and no new note is saved.
 
 3. **Edit existing note** [Novel Alam]
+4. **Edit existing note** [Novel Alam]
+
 - **Summary:** This feature should allow a user to edit their existing notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -80,6 +88,8 @@
   - The user cancels the note editing, and the note remains unchanged.
 
 4. **Delete a note** [Novel Alam]
+5. **Delete a note** [Novel Alam]
+
 - **Summary:** This feature should allow a user to delete their notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -98,11 +108,28 @@
   - The user cancels the note deletion, and the note remains in their account.
 
 5. **Format Text: Bold, Italicize, and Underline** [Iskandar Daoud]
+
+- **Summary:** Users can apply formatting options (bold, italic, underline) to selected text in their notes.
+- **Actors:** Users and Application
+
+5. **Format Text: Bold, Italicize, and Underline** [Iskandar Daoud]
+
 - **Summary:** Users can apply formatting options (bold, italic, underline) to selected text in their notes.
 - **Actors:** Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:**  User opens note
+- **Trigger:** User opens note
+- **Trigger:** User opens note
 - **Primary Sequence:**
+- 1. User highlights a portion of text in the note.
+- 2. The application displays a formatting toolbar with options for bold, italic, and underline.
+- 3. User clicks the "Bold" button on the toolbar.
+- 4. User clicks the "Italic" button on the toolbar.
+- 5. The application applies the italic style to the selected text.
+- 6. User clicks the "Underline" button on the toolbar.
+- 7. The application applies the underline style to the selected text.
+- **Primary Postcondition:** The selected text is formatted with bold, italic, and underline styles as per the user's actions.
+- **Alternate Sequence:** Formatting error
+- 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
 - 1. User highlights a portion of text in the note.
 - 2. The application displays a formatting toolbar with options for bold, italic, and underline.
 - 3. User clicks the "Bold" button on the toolbar.
@@ -115,6 +142,14 @@
 - 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
 
 6. **Save Notes** [Iskandar Daoud]
+
+- **Summary:** Users can save changes made to their notes.
+- **Actors:** Users and Application
+- **Pre-conditions:** User is logged in and has one note in the database.
+- **Trigger:** User makes edit to note.
+
+6. **Save Notes** [Iskandar Daoud]
+
 - **Summary:** Users can save changes made to their notes.
 - **Actors:** Users and Application
 - **Pre-conditions:** User is logged in and has one note in the database.
@@ -123,12 +158,26 @@
 - 1. User clicks the "Save" button.
 - 2. The application validates the note data.
 - 3. The application saves the changes to the note.
+- 1. User clicks the "Save" button.
+- 2. The application validates the note data.
+- 3. The application saves the changes to the note.
 - 4. The database stores the encrypted note data and enforces access controls to protect data privacy and integrity.
+- **Primary Postcondition:** The changes made to the note are successfully saved.
+- **Alternate Sequence:** Saving error
+- 3. If the application encounters an issue during the saving process, it informs the user with an error message, and the changes are not saved.
 - **Primary Postcondition:** The changes made to the note are successfully saved.
 - **Alternate Sequence:** Saving error
 - 3. If the application encounters an issue during the saving process, it informs the user with an error message, and the changes are not saved.
 
 7. **Switch between Dark and Light Mode** [Iskandar Daoud]
+
+- **Summary:** Users can toggle between dark and light modes for the application interface.
+- **Actors:** Users and Application
+- **Pre-conditions:** User is logged in.
+- **Trigger:** User clicks on the settings menu.
+
+7. **Switch between Dark and Light Mode** [Iskandar Daoud]
+
 - **Summary:** Users can toggle between dark and light modes for the application interface.
 - **Actors:** Users and Application
 - **Pre-conditions:** User is logged in.
@@ -141,25 +190,36 @@
 - **Primary Postcondition:** The application interface is now in selected mode.
 - **Alternate Sequence:** Mode switching error
 - 4. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
-     
+- 1. User selects the "Mode" option.
+- 2. Application prompts users for “Light” or “Dark” mode.
+- 3. User selects the mode.
+- 4. The application switches to selected mode.
+- **Primary Postcondition:** The application interface is now in selected mode.
+- **Alternate Sequence:** Mode switching error
+- 4. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
+
 8. **User logout** [Natalie Kao]
+
 - **Summary:** Registered users can log out of the application to end their current session securely.
 - **Actors:** User and Application
 - **Pre-conditions**: User has an account and is logged in.
 - **Trigger**: User decides to log out of the application.
 - **Primary Sequence**:
 - 1. User navigates to the user settings section.
-- 2. User clicks on the “logout” button. 
+- 2. User clicks on the “logout” button.
 - 3. The application returns to the login/home screen
 - **Primary Postcondition:** User is successfully logged out of the application and redirected to the login page.
 - **Alternative Sequence:**
 - 2. User cancels logout option.
 - 4. User remains logged in and stays on the current screen.
- 
+- 2. User cancels logout option.
+- 4. User remains logged in and stays on the current screen.
+
 9. **Update profile name** [Natalie Kao]
+
 - **Summary:** Registered users can update their profile name to keep their personal information accurate and reflective of any changes.
 - **Actors:** User and Application
-- **Pre-conditions:** User has an account and is logged in. 
+- **Pre-conditions:** User has an account and is logged in.
 - **Trigger:** The user decides to update their profile name.
 - **Primary Sequence:**
 - 1. User navigates to the profile settings section.
@@ -172,6 +232,7 @@
 - 5. Application doesn't update profile name.
 
 10. **Adjust default text size and font.** [Natalie Kao]
+
 - **Summary:** Users should have the option to adjust the default text size and font within the application
 - **Actors:** User and Application
 - **Pre-conditions:** The user has an account and is logged in and viewing the application
@@ -184,9 +245,10 @@
 - **Primary Postcondition:** The user has successfully adjusted the default text size and font, and the application displays the new text according to the user's preferences.
 - **Alternative Sequence:**
 - 3. Application does not offer text size and font customization.
-- 5. No changes are made and displays a "no results" message. 
-     
+- 5. No changes are made and displays a "no results" message.
+
 11. **Advanced Search with Regular Expressions and Category Filters** [Jaclyn Turner]
+
 - **Summary:** Users can perform advanced searches on notes using regular expressions or apply category filters to quickly find specific notes within for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
@@ -202,6 +264,7 @@
 - 5. The application displays a “no results” message.
 
 12. **Timestamp Note Creation** [Jaclyn Turner]
+
 - **Summary:** The application automatically timestamps the creation of a note to provide users with a record of when each note was created.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in to the application.
@@ -218,6 +281,7 @@
 - 6. Note isn't created or timestamped.
 
 13. **Delete Account** [Jaclyn Turner]
+
 - **Summary:** Registered users can initiate the process of permanently deleting their account from the application.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in to application.
@@ -232,6 +296,8 @@
 - 4. The application doesn't delete the user's account.
 
 14. **Secure Individual Notes with a Password** [Jaclyn Turner]
+15. **Secure Individual Notes with a Password** [Jaclyn Turner]
+
 - **Summary:** Users can enhance the privacy of specific notes by securing them with a password.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
