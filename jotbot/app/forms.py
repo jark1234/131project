@@ -29,6 +29,7 @@ class EditNoteForm(FlaskForm):
     note_id = HiddenField('Note ID')
     title = StringField('Title', validators=[DataRequired()])
     text = TextAreaField('Text', validators=[DataRequired()])
+    password = PasswordField('Password')
     submit = SubmitField('Save Changes')
 
 class DeleteNoteForm(FlaskForm):

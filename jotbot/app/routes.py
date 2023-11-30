@@ -110,25 +110,29 @@ def edit_note(note_id):
     edit_form = EditNoteForm()
     note = Note.query.get_or_404(note_id)
 
+
+
     if edit_form.validate_on_submit():
-        print(f"Form Text Data: {edit_form.text.data}")
+        provided_password = edit_form.password.data
 
-        note.title = edit_form.title.data
-        note.data = edit_form.text.data
-        note.date = datetime.utcnow()
-        db.session.commit()
+        # Verify the provided password against the stored hash
+        if check_password_hash(note.password_hash, provided_password):
+            note.title = edit_form.title.data
+            note.data = edit_form.text.data
+            note.date = datetime.utcnow()
+            db.session.commit()
 
-        flash('Note successfully edited', 'success')
-        return redirect(url_for('create_note', edited_note_id=note.id))
-    else:
-        # Populate the form with existing note data
-        edit_form.note_id.data = note.id
-        edit_form.title.data = note.title
-        edit_form.text.data = note.data
+            flash('Note successfully edited', 'success')
+            return redirect(url_for('create_note', edited_note_id=note.id))
+        else:
+            flash('Incorrect password. Note not edited.', 'error')
 
-    
+    # Populate the form with existing note data
+    edit_form.note_id.data = note.id
+    edit_form.title.data = note.title
+    edit_form.text.data = note.data
+
     return render_template('edit_note.html', edit_form=edit_form, note=note)
-
 
 
 
