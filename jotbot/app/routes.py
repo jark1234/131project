@@ -124,7 +124,7 @@ def edit_note(note_id):
         provided_password = edit_form.password.data
 
         # Verify the provided password against the stored hash
-        if check_password_hash(note.password_hash, provided_password):
+        if check_password_hash(user.password, provided_password):
             note.title = edit_form.title.data
             note.data = edit_form.text.data
             note.date = datetime.utcnow()
