@@ -48,7 +48,7 @@ def create_account():
         confirm_password = current_form.confirm_password.data
 
         if password != confirm_password:
-            error = 'Passwords do not match'
+            errorMessage = 'Passwords do not match'
             return render_template('create_account.html', error=error)
         
         existing_user = User.query.filter_by(email=email).first()
