@@ -2,9 +2,11 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+
+import pytz
 
 from datetime import datetime
 
@@ -24,20 +26,16 @@ def login():
     if current_form.validate_on_submit():
         email = current_form.email.data
         user = User.query.filter_by(email=email).first()
-        
-        if user:
-            # Debug output
-            print(f"Entered Email: {email}")
-            print(f"Retrieved User: {user.email}") 
-            print(f"Stored Password Hash: {user.password}")
 
         if user and check_password_hash(user.password, current_form.password.data):
-            print(f"Entered Password: {current_form.password.data}")
             print("Password Matched!")
             login_user(user, remember=current_form.remember_me.data)
             return redirect('/create_note')
+        else:
+            errorMessage = 'Invalid email or password. Please try again.'
 
     return render_template('login.html', current_form=current_form, error=errorMessage)
+
 
 @myapp_obj.route('/create_account', methods=['GET', 'POST'])
 def create_account():
@@ -74,18 +72,16 @@ def create_account():
 def create_note():
     current_form = CreateNoteForm()
 
-    # Check for the edited_note_id query parameter
-    if 'message' in request.args:
-        message_category = request.args['message_category']
-        flash(request.args['message'], message_category)
-
     if current_form.validate_on_submit():
-            # Create a new note
         note_title = current_form.title.data
         note_text = current_form.text.data
 
         if note_title.strip() and note_text.strip():
-            new_note = Note(title=note_title, data=note_text, user_id=current_user.id)
+            utc_now = datetime.utcnow()
+            timezone = pytz.utc
+            pst_timezone = pytz.timezone('US/Pacific')
+            pst_now = utc_now.replace(tzinfo=timezone).astimezone(pst_timezone)
+            new_note = Note(title=note_title, data=note_text, user_id=current_user.id, date=pst_now )
             db.session.add(new_note)
             db.session.commit()
         
@@ -113,6 +109,18 @@ def edit_note(note_id):
 
 
     if edit_form.validate_on_submit():
+        note.title = edit_form.title.data
+        note.text = edit_form.text.data
+        note.date = datetime.now()
+        db.session.commit()
+        return redirect(url_for('create_note'))
+    else:
+        # Populate the form with existing note data
+        edit_form.note_id.data = note.id
+        edit_form.title.data = note.title
+        edit_form.text.data = note.data
+
+    
         provided_password = edit_form.password.data
 
         # Verify the provided password against the stored hash
@@ -134,8 +142,13 @@ def edit_note(note_id):
 
     return render_template('edit_note.html', edit_form=edit_form, note=note)
 
-
-
+@myapp_obj.route('/logout')
+@login_required
+def logout():
+    logout_form = LogoutForm()
+    logout_user()
+    return redirect(url_for('login'))    
+    
 def load_notes():
     global notes 
     try:
