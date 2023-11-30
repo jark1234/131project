@@ -2,7 +2,7 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -24,20 +24,16 @@ def login():
     if current_form.validate_on_submit():
         email = current_form.email.data
         user = User.query.filter_by(email=email).first()
-        
-        if user:
-            # Debug output
-            print(f"Entered Email: {email}")
-            print(f"Retrieved User: {user.email}") 
-            print(f"Stored Password Hash: {user.password}")
 
         if user and check_password_hash(user.password, current_form.password.data):
-            print(f"Entered Password: {current_form.password.data}")
             print("Password Matched!")
             login_user(user, remember=current_form.remember_me.data)
             return redirect('/create_note')
+        else:
+            errorMessage = 'Invalid email or password. Please try again.'
 
     return render_template('login.html', current_form=current_form, error=errorMessage)
+
 
 @myapp_obj.route('/create_account', methods=['GET', 'POST'])
 def create_account():
@@ -129,9 +125,14 @@ def edit_note(note_id):
     
     return render_template('edit_note.html', edit_form=edit_form, note=note)
 
-
-
-
+@myapp_obj.route('/logout')
+@login_required
+def logout():
+    logout_form = LogoutForm()
+    logout_user()
+    return redirect(url_for('login'))
+    
+    
 def load_notes():
     global notes 
     try:
