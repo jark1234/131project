@@ -6,7 +6,7 @@ from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, Delet
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-import pytz
+#import pytz
 
 from datetime import datetime
 
@@ -106,25 +106,23 @@ def edit_note(note_id):
     edit_form = EditNoteForm()
     note = Note.query.get_or_404(note_id)
 
-
-
     if edit_form.validate_on_submit():
         note.title = edit_form.title.data
-        note.text = edit_form.text.data
+        note.data = edit_form.text.data
         note.date = datetime.now()
         db.session.commit()
         return redirect(url_for('create_note'))
-    else:
-        # Populate the form with existing note data
-        edit_form.note_id.data = note.id
-        edit_form.title.data = note.title
-        edit_form.text.data = note.data
 
-    
+    # Populate the form with existing note data
+    edit_form.note_id.data = note.id
+    edit_form.title.data = note.title
+    edit_form.text.data = note.data
+
+    if edit_form.password.data:
         provided_password = edit_form.password.data
 
         # Verify the provided password against the stored hash
-        if check_password_hash(user.password, provided_password):
+        if check_password_hash(note.user.password, provided_password):
             note.title = edit_form.title.data
             note.data = edit_form.text.data
             note.date = datetime.utcnow()
@@ -135,12 +133,8 @@ def edit_note(note_id):
         else:
             flash('Incorrect password. Note not edited.', 'error')
 
-    # Populate the form with existing note data
-    edit_form.note_id.data = note.id
-    edit_form.title.data = note.title
-    edit_form.text.data = note.data
-
     return render_template('edit_note.html', edit_form=edit_form, note=note)
+
 
 @myapp_obj.route('/logout')
 @login_required
