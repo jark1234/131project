@@ -37,6 +37,7 @@ Once the application is running, navigate to the registration page to create you
 - Python3.11
 - SQLAlchemy
 - Flask
+- Quill
 - HTML
 - CSS
 - Flask-login
