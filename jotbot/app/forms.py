@@ -29,8 +29,14 @@ class EditNoteForm(FlaskForm):
     note_id = HiddenField('Note ID')
     title = StringField('Title', validators=[DataRequired()])
     text = TextAreaField('Text', validators=[DataRequired()])
+    password = PasswordField('Password')
     submit = SubmitField('Save Changes')
 
 class DeleteNoteForm(FlaskForm):
     note_id = HiddenField('Note ID')
     submit = SubmitField('Delete')
+
+class DeleteAccountForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit= SubmitField('Delete Account')
+

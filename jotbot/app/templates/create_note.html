@@ -44,6 +44,21 @@
         <input type="hidden" name="text" id="hiddenText">
       </div>
 
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Add Note
+        </button>
+      </form>
+      <form method="POST" action="{{ url_for('delete_account') }}">
+        <button
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline"
+          type="submit"
+        >
+          Delete Account
+        </button>
+      </form>
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Add Note</button>
     </form>
 

@@ -2,7 +2,7 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm, DeleteAccountForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -48,7 +48,7 @@ def create_account():
         confirm_password = current_form.confirm_password.data
 
         if password != confirm_password:
-            error = 'Passwords do not match'
+            errorMessage = 'Passwords do not match'
             return render_template('create_account.html', error=error)
         
         existing_user = User.query.filter_by(email=email).first()
@@ -106,6 +106,8 @@ def edit_note(note_id):
     edit_form = EditNoteForm()
     note = Note.query.get_or_404(note_id)
 
+
+
     if edit_form.validate_on_submit():
         note.title = edit_form.title.data
         note.text = edit_form.text.data
@@ -119,6 +121,25 @@ def edit_note(note_id):
         edit_form.text.data = note.data
 
     
+        provided_password = edit_form.password.data
+
+        # Verify the provided password against the stored hash
+        if check_password_hash(user.password, provided_password):
+            note.title = edit_form.title.data
+            note.data = edit_form.text.data
+            note.date = datetime.utcnow()
+            db.session.commit()
+
+            flash('Note successfully edited', 'success')
+            return redirect(url_for('create_note', edited_note_id=note.id))
+        else:
+            flash('Incorrect password. Note not edited.', 'error')
+
+    # Populate the form with existing note data
+    edit_form.note_id.data = note.id
+    edit_form.title.data = note.title
+    edit_form.text.data = note.data
+
     return render_template('edit_note.html', edit_form=edit_form, note=note)
 
 @myapp_obj.route('/logout')
@@ -126,8 +147,7 @@ def edit_note(note_id):
 def logout():
     logout_form = LogoutForm()
     logout_user()
-    return redirect(url_for('login'))
-    
+    return redirect(url_for('login'))    
     
 def load_notes():
     global notes 
@@ -140,5 +160,27 @@ def load_notes():
 def save_notes():
     with open('notes.json', 'w') as file:
         json.dump(notes, file, indent = 4)
+
+@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
+@login_required
+def delete_account():
+    delete_account_form = DeleteAccountForm()
+
+    if delete_account_form.validate_on_submit():
+        provided_password = delete_account_form.password.data
+
+        # Verify the provided password against the stored hash
+        if check_password_hash(current_user.password, provided_password):
+            # Delete the user account and redirect to the login page
+            db.session.delete(current_user)
+            db.session.commit()
+            logout_user()
+            flash('Account successfully deleted', 'success')
+            return redirect(url_for('login'))
+        else:
+            flash('Incorrect password. Account not deleted.', 'error')
+
+    return render_template('delete_account.html', delete_account_form=delete_account_form)
+
 
 
