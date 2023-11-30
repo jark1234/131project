@@ -36,6 +36,10 @@
       theme: 'snow'
     });
 
+    // Populate the Quill editor with existing note content
+    var existingContent = '{{ note.data | tojson | safe }}';
+    quill.root.innerHTML = JSON.parse(existingContent);
+
     var hiddenText = document.querySelector('input[name="text"]');
     quill.on('text-change', function() {
       hiddenText.value = quill.root.innerHTML;
