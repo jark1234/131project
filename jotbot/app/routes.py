@@ -2,9 +2,11 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+
+import pytz
 
 from datetime import datetime
 
@@ -70,18 +72,16 @@ def create_account():
 def create_note():
     current_form = CreateNoteForm()
 
-    # Check for the edited_note_id query parameter
-    if 'message' in request.args:
-        message_category = request.args['message_category']
-        flash(request.args['message'], message_category)
-
     if current_form.validate_on_submit():
-            # Create a new note
         note_title = current_form.title.data
         note_text = current_form.text.data
 
         if note_title.strip() and note_text.strip():
-            new_note = Note(title=note_title, data=note_text, user_id=current_user.id)
+            utc_now = datetime.utcnow()
+            timezone = pytz.utc
+            pst_timezone = pytz.timezone('US/Pacific')
+            pst_now = utc_now.replace(tzinfo=timezone).astimezone(pst_timezone)
+            new_note = Note(title=note_title, data=note_text, user_id=current_user.id, date=pst_now )
             db.session.add(new_note)
             db.session.commit()
         
@@ -107,15 +107,11 @@ def edit_note(note_id):
     note = Note.query.get_or_404(note_id)
 
     if edit_form.validate_on_submit():
-        print(f"Form Text Data: {edit_form.text.data}")
-
         note.title = edit_form.title.data
-        note.data = edit_form.text.data
-        note.date = datetime.utcnow()
+        note.text = edit_form.text.data
+        note.date = datetime.now()
         db.session.commit()
-
-        flash('Note successfully edited', 'success')
-        return redirect(url_for('create_note', edited_note_id=note.id))
+        return redirect(url_for('create_note'))
     else:
         # Populate the form with existing note data
         edit_form.note_id.data = note.id
