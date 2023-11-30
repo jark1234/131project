@@ -161,4 +161,26 @@ def save_notes():
     with open('notes.json', 'w') as file:
         json.dump(notes, file, indent = 4)
 
+@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
+@login_required
+def delete_account():
+    delete_account_form = Delete_Account_Form()
+
+    if delete_account_form.validate_on_submit():
+        provided_password = delete_account_form.password.data
+
+        # Verify the provided password against the stored hash
+        if check_password_hash(current_user.password, provided_password):
+            # Delete the user account and redirect to the login page
+            db.session.delete(current_user)
+            db.session.commit()
+            logout_user()
+            flash('Account successfully deleted', 'success')
+            return redirect(url_for('login'))
+        else:
+            flash('Incorrect password. Account not deleted.', 'error')
+
+    return render_template('delete_account.html', delete_account_form=delete_account_form)
+
+
 
