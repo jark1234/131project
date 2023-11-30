@@ -17,13 +17,14 @@
 
       <div class="mb-4">
         <label class="block text-gray-700 font-bold mb-2" for="text">Text</label>
-        <!-- Updated text area with formatting buttons -->
+        <!-- Updated contenteditable div with formatting buttons -->
         <div class="flex mb-2">
-          <button id="editBoldBtn" type="button" class="mr-2 font-bold">B</button>
-          <button id="editItalicBtn" type="button" class="mr-2 italic">I</button>
-          <button id="editUnderlineBtn" type="button" class="underline">U</button>
+          <button id="editBoldBtn" type="button" class="mr-2 font-bold" onclick="applyFormatting('bold')">B</button>
+          <button id="editItalicBtn" type="button" class="mr-2 italic" onclick="applyFormatting('italic')">I</button>
+          <button id="editUnderlineBtn" type="button" class="underline" onclick="applyFormatting('underline')">U</button>
         </div>
-        {{ edit_form.text(class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", id="editNoteText") }}
+        <div class="border rounded px-3 py-2" contenteditable="true" id="editNoteText"></div>
+        <input type="hidden" name="text" id="hiddenText">
       </div>
 
       <!-- Add a "Save Changes" button -->
@@ -36,26 +37,27 @@
     <a href="{{ url_for('create_note') }}" class="text-blue-500 hover:underline">Cancel</a>
   </div>
 
-  <!-- Script for handling text formatting -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const editNoteText = document.getElementById("editNoteText");
-      const editBoldBtn = document.getElementById("editBoldBtn");
-      const editItalicBtn = document.getElementById("editItalicBtn");
-      const editUnderlineBtn = document.getElementById("editUnderlineBtn");
+    function applyFormatting(command) {
+      const div = document.getElementById("editNoteText");
+      const selection = window.getSelection();
+      const range = selection.getRangeAt(0);
+      const selectedText = range.toString();
 
-      editBoldBtn.addEventListener("click", () => {
-        document.execCommand("bold");
-      });
-
-      editItalicBtn.addEventListener("click", () => {
-        document.execCommand("italic");
-      });
-
-      editUnderlineBtn.addEventListener("click", () => {
-        document.execCommand("underline");
-      });
-    });
+      switch (command) {
+        case 'bold':
+          document.execCommand('bold');
+          break;
+        case 'italic':
+          document.execCommand('italic');
+          break;
+        case 'underline':
+          document.execCommand('underline');
+          break;
+        default:
+          break;
+      }
+    }
   </script>
 </body>
 </html>
