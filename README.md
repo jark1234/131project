@@ -19,9 +19,7 @@
 ## Features
 
 - Create, Edit, Delete and Save notes
-- Encrypt individual notes with password for privacy
 - Edit interface for personalization
-- Export notes to PDF for easy sharing
 
 ## Setup
 
