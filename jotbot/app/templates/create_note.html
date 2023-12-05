@@ -4,6 +4,11 @@
   <title>My Notes App</title>
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" />
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div class="container mx-auto py-4">
@@ -33,12 +38,15 @@
     <form method="POST" action="{{ url_for('delete_account') }}">
       <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline" type="submit">Delete Account</button>
     </form>
+    <a href="#" id="showTimestamps" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Show Timestamps</a>
+    <!-- Show Timestamps button -->
     {% for note in user_notes %}
     <div class="border rounded p-4 mb-4 flex justify-between items-center">
       <div>
         <h2 class="text-lg font-bold">{{ note.title }}</h2>
         <div id="editor_{{ note.id }}" class="text-content"></div> <!-- Quill editor for displaying notes -->
-        <p class="text-sm text-gray-700">{{ note.date }}</p>
+        <p class="text-sm text-gray-700 timestamp hidden">{{ note.date }}</p>
+        <!-- Hidden timestamp by default -->
       </div>
       <div class="flex space-x-2">
         <a href="{{ url_for('edit_note', note_id=note.id) }}" class="bg-gray-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline">Edit</a>
@@ -47,18 +55,23 @@
         </form>
       </div>
     </div>
-    <script>
-      var quill_{{ note.id }} = new Quill('#editor_{{ note.id }}', {
-        theme: 'snow',
-        readOnly: true
-      });
-      quill_{{ note.id }}.setContents({!! note.data !!}); // Set note content
-    </script>
     {% endfor %}
   </div>
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script>
+    document.getElementById('showTimestamps').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+
+      var timestamps = document.querySelectorAll('.timestamp');
+      timestamps.forEach(function(timestamp) {
+        timestamp.classList.toggle('hidden'); // Toggle the 'hidden' class to show/hide timestamps
+      });
+
+      var buttonText = this.innerText;
+      this.innerText = buttonText === 'Show Timestamps' ? 'Hide Timestamps' : 'Show Timestamps'; // Change button text
+    });
+
     var quill = new Quill('#editor', {
       theme: 'snow'
     });
