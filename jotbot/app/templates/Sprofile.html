@@ -1,0 +1,24 @@
+{% extends "Sbase.html" %} {% block title %}Profile{% endblock %} {% block
+content %}
+<div class="content">
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1 class="profile-title">Bienvenida, {{ username }}!</h1>
+    </div>
+    <div class="profile-details">
+      <h3>Correo electrónico::</h3>
+      <p>{{ email }}</p>
+      <h3>Fecha de nacimiento:</h3>
+      <p>{{ dob }}</p>
+    </div>
+    <div class="profile-actions">
+      <form method="POST" action="{{ url_for('Sprofile_edit') }}">
+        <button class="btn-edit-profile" type="submit">Editar Perfil</button>
+      </form>
+      <form method="POST" action="{{ url_for('Sdelete_account') }}">
+        <button class="btn-delete-account" type="submit">Borrar cuenta</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
