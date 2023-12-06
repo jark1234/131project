@@ -89,38 +89,6 @@
           type="submit"
         >
           Add Note
-          <form method="POST" action="{{url_for('create_note')}}">
-  {{ current_form.hidden_tag() }} {% if current_form.edit_note_id %}
-  <input
-    type="hidden"
-    name="edit_note_id"
-    value="{{ current_form.edit_note_id }}"
-  />
-  {% endif %}
-
-  <div class="mb-4">
-    <label class="block text-gray-700 font-bold mb-2" for="text">Text</label>
-    <div id="editor" style="height: 300px;"></div>
-    <input type="hidden" name="text" id="hiddenText" />
-  </div>
-
-  <button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    type="submit"
-  >
-    Add Note
-  </button>
-            
-  <button id="changeColorButton">Change Page Color</button>
-</form>
-
-<a
-  href="#"
-  id="showTimestamps"
-  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-  >Show Timestamps</a
->
-
         </button>
       </form>
       <div class="mt-2"></div>
