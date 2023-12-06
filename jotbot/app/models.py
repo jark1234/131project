@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
    username = db.Column(db.String, unique=True, nullable=False)
    email = db.Column(db.String(100), unique=True, nullable=False)  
    password = db.Column(db.String(100), nullable=False)
+
+   dob = db.Column(db.String)
    
 @login.user_loader
 def load_user(user_id):

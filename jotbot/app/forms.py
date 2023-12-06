@@ -45,4 +45,6 @@ class ProfileForm(FlaskForm):
     submit = SubmitField('Profile')
     
 class ProfileEditForm(FlaskForm):
+    dob = StringField('yyy-mm-dd', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired()])
     submit = SubmitField('Save') 
