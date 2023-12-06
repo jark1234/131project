@@ -1,36 +1,24 @@
 {% extends "base.html" %} {% block title %}Profile{% endblock %} {% block
 content %}
 <div class="content">
-  <center>
-    <div>
-      <h1 class="title">Welcome, {{ username }}!</h1>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1 class="profile-title">Welcome, {{ username }}!</h1>
     </div>
-  </center>
-  <center>
-    <h1>
+    <div class="profile-details">
       <h3>Email:</h3>
-      {{ email }}
-    </h1>
-  </center>
-  <center>
-    <div class="ribb">
-      <form method="POST" action="{{ url_for('edit_profile') }}">
-        <button
-          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline"
-          type="submit"
-        >
-          Edit Profile
-        </button>
+      <p>{{ email }}</p>
+      <h3>Date of Birth:</h3>
+      <p>{{ dob }}</p>
+    </div>
+    <div class="profile-actions">
+      <form method="POST" action="{{ url_for('profile_edit') }}">
+        <button class="btn-edit-profile" type="submit">Edit Profile</button>
       </form>
       <form method="POST" action="{{ url_for('delete_account') }}">
-        <button
-          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline inline"
-          type="submit"
-        >
-          Delete Account
-        </button>
+        <button class="btn-delete-account" type="submit">Delete Account</button>
       </form>
     </div>
-  </center>
+  </div>
 </div>
 {% endblock %}

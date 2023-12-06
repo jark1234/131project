@@ -1,4 +1,3 @@
-import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
@@ -9,9 +8,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import pytz
 
 from datetime import datetime
-
-users = {'novel': 'alam'}  
-
 
 @myapp_obj.route('/')
 def home():
@@ -54,7 +50,11 @@ def create_account():
         elif not(validPassword(password)):
             errorMessage = 'Password must be longer than 8 characters'
             return render_template('create_account.html', form=current_form, error=errorMessage)
- 
+
+        existing_username = User.query.filter_by(username=username).first()
+        if existing_username:
+            errorMessage = 'Username is already taken. Please choose another.'
+            return render_template('create_account.html', form=current_form, error=errorMessage)        
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
             errorMessage = 'Email already exists, please log in'
@@ -83,9 +83,12 @@ def create_note():
         if note_title.strip() and note_text.strip():
             utc_now = datetime.utcnow()
             timezone = pytz.utc
-            pst_timezone = pytz.timezone('US/Pacific')
-            pst_now = utc_now.replace(tzinfo=timezone).astimezone(pst_timezone)
-            new_note = Note(title=note_title, data=note_text, user_id=current_user.id, date=pst_now )
+            pdt_timezone = pytz.timezone('America/Los_Angeles')  # Use 'America/Los_Angeles' for PDT
+            pdt_now = utc_now.replace(tzinfo=timezone).astimezone(pdt_timezone)
+
+            print("Storing timestamp:", pdt_now)  # Add this line for debugging
+
+            new_note = Note(title=note_title, data=note_text, user_id=current_user.id, date=pdt_now)
             db.session.add(new_note)
             db.session.commit()
             return redirect(url_for('create_note'))
@@ -93,7 +96,10 @@ def create_note():
         flash('Note successfully added', 'success')  # Add this line to display a flash message
 
     user_notes = Note.query.filter_by(user_id=current_user.id).order_by(Note.date.desc()).all()
+    for note in user_notes:
+        note.date = note.date.replace(tzinfo=pytz.utc).astimezone(pytz.timezone('America/Los_Angeles'))
     return render_template('create_note.html', current_form=current_form, user_notes=user_notes)
+
 
 
 @myapp_obj.route('/delete_note/<int:note_id>', methods=['POST'])
@@ -132,18 +138,6 @@ def logout():
     logout_form = LogoutForm()
     logout_user()
     return redirect(url_for('login'))    
-    
-def load_notes():
-    global notes 
-    try:
-        with open('notes.json', 'r') as file:
-            notes = json.load(file)
-    except FileNotFoundError:
-        notes = []
-
-def save_notes():
-    with open('notes.json', 'w') as file:
-        json.dump(notes, file, indent = 4)
 
 @myapp_obj.route('/delete_account', methods=['GET', 'POST'])
 @login_required
@@ -166,19 +160,33 @@ def delete_account():
 
     return render_template('delete_account.html', delete_account_form=delete_account_form)
 
-@myapp_obj.route('/profile', )
+@myapp_obj.route('/profile' )
 @login_required
 def profile():
     username = current_user.username
     email = current_user.email
     password = current_user.password
-    return render_template("profile.html", username = username, email = email, password = password)
+    dob = current_user.dob
+    return render_template("profile.html", username = username, email = email, password = password, dob=dob)
 
 
-@myapp_obj.route('/profile_edit', methods = ['POST', 'GET'])
+@myapp_obj.route('/profile_edit', methods = ['GET', 'POST'])
 @login_required
-def edit_profile():
+def profile_edit():
     current_form = ProfileEditForm()
+    user = User.query.filter_by(username=current_user.username).first() #retreiving current user
+    if request.method == 'POST' and current_form.validate_on_submit():
+        if current_form.username.data != current_user.username and User.query.filter_by(username=current_form.username.data).first():
+            flash('Username is already taken. Please choose another.', 'danger')
+            return redirect(url_for('profile_edit'))
+        else:
+            user.dob = current_form.dob.data            #updating dob of user
+            user.username = current_form.username.data
+            db.session.commit()
+            login_user(User.query.get(user.id))
+
+        return redirect(url_for('profile')) #redirects to profile after submitting form, will show updated dob, username
+    return render_template('profile_edit.html', form=current_form)
 
 #helper function
 
