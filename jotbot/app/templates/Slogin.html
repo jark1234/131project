@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Kadwa:wght@700&display=swap"
       rel="stylesheet"
     />
-    <title>JotBot - Login</title>
+    <title>JotBot - Acceso</title>
     <style>
       body {
         font-family: "Arial", sans-serif;
@@ -117,24 +117,24 @@
   </head>
   <body>
     <div class="jotbot-text">JotBot</div>
-    <h2>Login</h2>
+    <h2>Iniciar sesión</h2>
     {% if error %}
     <p class="error">{{ error }}</p>
     {% endif %}
-    <form method="post" action="/login">
+    <form method="post" action="/Slogin">
       {{ current_form.hidden_tag() }}
-      <label for="email">Email:</label><br />
+      <label for="email">Correo electrónico :</label><br />
       <input
         type="text"
         id="email"
         name="email"
         value="{{ current_form.email.data }}"
       /><br />
-      <label for="password">Password:</label><br />
+      <label for="password">Contraseña:</label><br />
       <input type="password" id="password" name="password" /><br /><br />
-      <input type="submit" value="Login" />
+      <input type="submit" value="Acceso" />
     </form>
-    <a href="{{ url_for('create_account') }}">Create New Account</a>
+    <a href="{{ url_for('Screate_account') }}"> Crear Una Nueva Cuenta</a>
     <!-- Language Dropdown -->
     <div class="dropdown">
       <button class="dropbtn">Language</button>

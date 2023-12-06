@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Borrar Cuenta</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+      }
+
+      div {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #ff5757;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      h5 {
+        margin-top: 20px;
+        color: #555;
+      }
+
+      .error {
+        color: #ff5757;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Borrar cuenta</h1>
+      <h2>Por favor ingrese su contraseña para confirmar.</h2>
+
+      <form action="" method="POST" novalidate>
+        {{ delete_account_form.hidden_tag() }}
+        <p>
+          {{ delete_account_form.password.label }} <br />
+          {{ delete_account_form.password() }}
+        </p>
+        <p><button type="submit">Borrar cuenta</button></p>
+      </form>
+
+      <h5>Serás redirigido a la página de inicio cuando esté completo.</h5>
+      <div class="error">{{ error }}</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "Sbase.html" %} {% block title %}Edit Profile{% endblock %} {% block
+content %}
+<div class="content">
+  <div class="profile-edit-container">
+    <h1 class="profile-edit-title">Edite su Perfil</h1>
+    <form method="POST" action="{{ url_for('Sprofile_edit') }}">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        <label for="username">Nombre de usuario:</label>
+        {{ form.username(class="form-control", required="required") }}
+      </div>
+      <div class="form-group">
+        <label for="dob">Fecha de nacimiento:</label>
+        {{ form.dob(id="dob", class="form-control", required="required") }}
+      </div>
+      <!-- Include Flatpickr styles and script -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          flatpickr("#dob", {
+            dateFormat: "m/d/y", // Set the desired date format
+            maxDate: "today", // Optionally set the maximum date to today
+            disableMobile: true, // Disable mobile-friendly input (useful for larger screens)
+          });
+        });
+      </script>
+      <button class="btn-save-profile" type="submit">Guardar cambios</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
