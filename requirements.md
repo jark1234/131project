@@ -27,8 +27,6 @@
 ## Use Cases
 
 1. **Create an account using email and password** [Novel Alam]
-1. **Create an account using email and password** [Novel Alam]
-
 - **Summary:** This feature should allow a user to create a new account using an email address and a password.
 - **Actors:** User and Application
 - **Pre-conditions:** User does not have an existing account with that particular email address.
@@ -47,8 +45,6 @@
 - User is prompted to sign in with existing email address and password.
 
 2. **Create a new note** [Novel Alam]
-3. **Create a new note** [Novel Alam]
-
 - **Summary:** This feature should allow a user to create a new note within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account.
@@ -68,8 +64,6 @@
   - The user cancels the note creation, and no new note is saved.
 
 3. **Edit existing note** [Novel Alam]
-4. **Edit existing note** [Novel Alam]
-
 - **Summary:** This feature should allow a user to edit their existing notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -88,8 +82,6 @@
   - The user cancels the note editing, and the note remains unchanged.
 
 4. **Delete a note** [Novel Alam]
-5. **Delete a note** [Novel Alam]
-
 - **Summary:** This feature should allow a user to delete their notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -106,11 +98,6 @@
   - The selected note is permanently deleted from the user's account.
   - OR
   - The user cancels the note deletion, and the note remains in their account.
-
-5. **Format Text: Bold, Italicize, and Underline** [Iskandar Daoud]
-
-- **Summary:** Users can apply formatting options (bold, italic, underline) to selected text in their notes.
-- **Actors:** Users and Application
 
 5. **Format Text: Bold, Italicize, and Underline** [Iskandar Daoud]
 
@@ -140,13 +127,6 @@
 - **Primary Postcondition:** The selected text is formatted with bold, italic, and underline styles as per the user's actions.
 - **Alternate Sequence:** Formatting error
 - 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
-
-6. **Save Notes** [Iskandar Daoud]
-
-- **Summary:** Users can save changes made to their notes.
-- **Actors:** Users and Application
-- **Pre-conditions:** User is logged in and has one note in the database.
-- **Trigger:** User makes edit to note.
 
 6. **Save Notes** [Iskandar Daoud]
 
@@ -175,13 +155,6 @@
 - **Actors:** Users and Application
 - **Pre-conditions:** User is logged in.
 - **Trigger:** User clicks on the settings menu.
-
-7. **Switch between Dark and Light Mode** [Iskandar Daoud]
-
-- **Summary:** Users can toggle between dark and light modes for the application interface.
-- **Actors:** Users and Application
-- **Pre-conditions:** User is logged in.
-- **Trigger:** User clicks on the settings menu.
 - **Primary Sequence:**
 - 1. User selects the "Mode" option.
 - 2. Application prompts users for “Light” or “Dark” mode.
@@ -199,7 +172,6 @@
 - 4. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
 
 8. **User logout** [Natalie Kao]
-
 - **Summary:** Registered users can log out of the application to end their current session securely.
 - **Actors:** User and Application
 - **Pre-conditions**: User has an account and is logged in.
@@ -216,7 +188,6 @@
 - 4. User remains logged in and stays on the current screen.
 
 9. **Update profile name** [Natalie Kao]
-
 - **Summary:** Registered users can update their profile name to keep their personal information accurate and reflective of any changes.
 - **Actors:** User and Application
 - **Pre-conditions:** User has an account and is logged in.
@@ -232,7 +203,6 @@
 - 5. Application doesn't update profile name.
 
 10. **Users should be able to modify the font size and headings within the note.** [Novel Alam]
-
 - **Summary:** Users can modify font size and headings within the note feature of the application.
 - **Actors:** User and Application
 - **Pre-conditions:** The user is logged into the application and accessing the note-taking feature.
@@ -252,7 +222,6 @@
 - 4. Without an existing note, the Note Editor remains inactive, preventing any changes to font size or headings.
 
 11. **Advanced Search with Regular Expressions and Category Filters** [Jaclyn Turner]
-
 - **Summary:** Users can perform advanced searches on notes using regular expressions or apply category filters to quickly find specific notes within for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
@@ -268,7 +237,6 @@
 - 5. The application displays a “no results” message.
 
 12. **Timestamp Note Creation** [Jaclyn Turner]
-
 - **Summary:** The application automatically timestamps the creation of a note to provide users with a record of when each note was created.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in to the application.
@@ -285,7 +253,6 @@
 - 6. Note isn't created or timestamped.
 
 13. **Delete Account** [Jaclyn Turner]
-
 - **Summary:** Registered users can initiate the process of permanently deleting their account from the application.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in to application.
@@ -300,8 +267,6 @@
 - 4. The application doesn't delete the user's account.
 
 14. **Secure Individual Notes with a Password** [Jaclyn Turner]
-15. **Secure Individual Notes with a Password** [Jaclyn Turner]
-
 - **Summary:** Users can enhance the privacy of specific notes by securing them with a password.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
