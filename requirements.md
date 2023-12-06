@@ -7,13 +7,13 @@
 5. Users must be able to bold, italicize, and underline text.
 6. Users must be able to save their notes.
 7. Users must be able to select dark or light mode.
-8. Users must be able to logout of their account.
+8. Users must be able to log out of their accounts.
 9. Users must be able to update their profile name.
-10. Users must have the option to adjust the default text size and font.
-11. Application should provide advanced search items with regular expressions or filters by categories.
-12. Application should provide a timestamp for note creation.
-13. Users should have the ability to permanently delete their account.
-14. Users should have the option to secure individual notes with a password.
+10. Users should be able to modify the font size and headings within the note.
+11. The application should provide advanced search items with regular expressions or filters by categories.
+12. The application should provide a timestamp for note creation.
+13. Users should have the ability to delete their accounts permanently.
+14. Users should be able to secure individual notes with a password.
 
 ## Sketches
 
@@ -231,21 +231,25 @@
 - 4. User aborts save.
 - 5. Application doesn't update profile name.
 
-10. **Adjust default text size and font.** [Natalie Kao]
+10. **Users should be able to modify the font size and headings within the note.** [Novel Alam]
 
-- **Summary:** Users should have the option to adjust the default text size and font within the application
+- **Summary:** Users can modify font size and headings within the note feature of the application.
 - **Actors:** User and Application
-- **Pre-conditions:** The user has an account and is logged in and viewing the application
-- **Trigger:** User accesses the Text Setting in the application under Settings
+- **Pre-conditions:** The user is logged into the application and accessing the note-taking feature.
+- **Trigger:** User utilizes the toolbar and drop-down menu to select a new font size or heading within the Note Editor.
 - **Primary Sequence:**
-- 1. Application presents a menu or interface for adjusting the default text size and font.
-- 2. Users select their preferred text size and font from available options.
-- 3. Application applies chosen text settings to the UI.
-- 4. The user sees text displayed with the new default text size and font.
-- **Primary Postcondition:** The user has successfully adjusted the default text size and font, and the application displays the new text according to the user's preferences.
+- 1. The Note Editor toolbar displays options for adjusting font size and headings.
+- 2. User interacts with the toolbar and selects preferred font size or heading options from the drop-down menu.
+- 3. Chosen settings are implemented by the Note Editor to modify the font size or headings within the note.
+- 4. The note content is displayed to the user with the newly selected font size or headings.
+- **Primary Postcondition:**
+- 1. User successfully modifies the font size or headings within the note.
+- 2. Note Editor displays the note according to the user's chosen font size or headings.
 - **Alternative Sequence:**
-- 3. Application does not offer text size and font customization.
-- 5. No changes are made and displays a "no results" message.
+- 1. User attempts to access the Note Editor but finds no existing note available for editing.
+- 2. As no note is present, the User cannot modify font size or headings within the Note Editor.
+- 3. Application may prompt the User to create a new note or take necessary actions to proceed.
+- 4. Without an existing note, the Note Editor remains inactive, preventing any changes to font size or headings.
 
 11. **Advanced Search with Regular Expressions and Category Filters** [Jaclyn Turner]
 
