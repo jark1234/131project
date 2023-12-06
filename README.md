@@ -26,20 +26,23 @@
 ## Requirements
 
 ### Functional
+
 - Users must be able to create an account using email and password [Natalie]
 - Users must be able to create a new note [Natalie]
-- Users must be able to edit an existing note [Novel]
-- Users must be able to delete notes [Novel]
+- Users must be able to edit an existing note [Natalie]
+- Users must be able to delete notes [Natalie]
 - Users must be able to bold, italicize, and underline text [Novel]
 - Users must be able to save their notes [Novel]
 - Users must be able to log out of their account [Natalie]
 - Users must be able to update their profile name [Natalie]
-- Connect with an External API* [Novel]
+- Connect with an External API\* [Novel]
 - User must be able to turn timestamp visibility on and off [Novel]
 - Users must have the ability to permanently delete their account [Jaclyn]
 - User must have the ability to search notes [Jaclyn]
+
 ### Non-Functional
-- Multilingual Support* [Jaclyn and Natalie]
+
+- Multilingual Support\* [Jaclyn and Natalie]
 
 ## Setup
 
