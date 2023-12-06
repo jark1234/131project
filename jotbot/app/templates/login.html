@@ -128,8 +128,11 @@
         type="text"
         id="email"
         name="email"
-        value="{{ current_form.email.data }}"
+        {% if current_form.email.data %}
+          value="{{ current_form.email.data }}"
+        {% endif %}
       /><br />
+
       <label for="password">Password:</label><br />
       <input type="password" id="password" name="password" /><br /><br />
       <input type="submit" value="Login" />
