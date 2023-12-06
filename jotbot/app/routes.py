@@ -182,5 +182,17 @@ def delete_account():
 
     return render_template('delete_account.html', delete_account_form=delete_account_form)
 
+@myapp_obj.route('/search', methods=['POST'])
+def search():
+    query = request.form.get('query')
+    if query:
+        notes = Note.query.filter(
+            (Note.title.ilike(f"%{query}%")) | (Note.data.ilike(f"%{query}%"))
+        ).all()
+    else:
+        notes = Note.query.all()
+
+    previous_page = request.referrer
+    return render_template('search_results.html', query=query, notes=notes, previous_page=previous_page)
 
 
