@@ -2,7 +2,7 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, flash
 from . import myapp_obj, db
 from app.models import Note, User
-from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm, DeleteAccountForm
+from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm, DeleteAccountForm, ProfileEditForm 
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -42,7 +42,8 @@ def create_account():
     current_form = SignupForm()
     errorMessage = ''
 
-    if current_form.validate_on_submit():   
+    if current_form.validate_on_submit():
+        username = current_form.username.data   
         email = current_form.email.data
         password = current_form.password.data
         confirm_password = current_form.confirm_password.data
@@ -50,13 +51,16 @@ def create_account():
         if password != confirm_password:
             errorMessage = 'Passwords do not match'
             return render_template('create_account.html', error=error)
-        
+        elif not(validPassword(password)):
+            errorMessage = 'Password must be longer than 8 characters'
+            return render_template('create_account.html', form=current_form, error=errorMessage)
+ 
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
             errorMessage = 'Email already exists, please log in'
             return render_template('create_account.html', form=current_form, error=errorMessage)
         
-        user = User(email=email, password=generate_password_hash(password))
+        user = User(username = username, email=email, password=generate_password_hash(password))
         db.session.add(user)
         db.session.commit()
         flash('Account created successfully. Please log in.')
@@ -161,6 +165,29 @@ def delete_account():
             flash('Incorrect password. Account not deleted.', 'error')
 
     return render_template('delete_account.html', delete_account_form=delete_account_form)
+
+@myapp_obj.route('/profile', )
+@login_required
+def profile():
+    username = current_user.username
+    email = current_user.email
+    password = current_user.password
+    return render_template("profile.html", username = username, email = email, password = password)
+
+
+@myapp_obj.route('/profile_edit', methods = ['POST', 'GET'])
+@login_required
+def edit_profile():
+    current_form = ProfileEditForm()
+
+#helper function
+
+def validPassword(string):
+    if len(string) < 8:
+        return False
+    return True
+
+
 
 
 

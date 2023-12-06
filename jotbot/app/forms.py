@@ -12,6 +12,7 @@ class HomePageForm(FlaskForm):
     homePage = SubmitField('Home')
 
 class SignupForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email Address', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
@@ -40,3 +41,8 @@ class DeleteAccountForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit= SubmitField('Delete Account')
 
+class ProfileForm(FlaskForm):
+    submit = SubmitField('Profile')
+    
+class ProfileEditForm(FlaskForm):
+    submit = SubmitField('Save') 
