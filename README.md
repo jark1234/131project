@@ -34,7 +34,8 @@
 - Users must be able to bold, italicize, and underline text [Novel]
 - Users must be able to save their notes [Novel]
 - Users must be able to log out of their account [Natalie]
-- Users must be able to update their profile name [Natalie]
+- Users must be able to update their profile name and date of birth [Natalie]
+- Users should be able to modify the font size and headings within the note.
 - Connect with an External API\* [Novel]
 - User must be able to turn timestamp visibility on and off [Novel]
 - Users must have the ability to permanently delete their account [Jaclyn]
@@ -50,7 +51,7 @@ To set up the application, initiate the cloning process by copying the repositor
 
 ## Usage
 
-Once the application is running, navigate to the registration page to create your account. One must create an account using a username, email, and password. After creating an account, the user's data will be stored in the database. The application will bring the user back to the login page, where they will be prompted for their login information. If login information is found in the database, the user will be brought to the JotBot’s homepage. On the homepage, users can create a new note with a title and content and modify existing notes by selecting the note they wish to update and saving their changes. All notes will be timestamped when they are created or edited, and users can choose to make those timestamps visible or hidden. Users can initiate a search to find specific notes quickly within the “Search” feature. Within “Profile,” users can update their profile name and birthday by clicking "Edit Profile" or delete their account by clicking "Delete Account." Within each note, users have the ability to remove unwanted notes permanently by clicking ”Delete”. For text formatting, users can bold, italicize, or underline text, as well as change text size and font while creating or editing a note. After each edit, users must “Save” their notes to ensure changes are stored securely. Manage your account by logging out to secure your data. To log out of the application, the user will click “Logout”.
+Once the application is running, navigate to the registration page to create your account. If using the Spanish version, click "Language" and select "Spanish." One must create an account using a username, email, and password. After creating an account, the user's data will be stored in the database. The application will bring the user back to the login page, where they will be prompted for their login information. If login information is found in the database, the user will be brought to the JotBot’s homepage. On the homepage, users can create a new note with a title and content and modify existing notes by selecting the note they wish to update and saving their changes. All notes will be timestamped when they are created or edited, and users can choose to make those timestamps visible or hidden. Users can initiate a search to find specific notes quickly within the “Search” feature. Within “Profile,” users can update their profile name and birthday by clicking "Edit Profile" or delete their account by clicking "Delete Account." Within each note, users have the ability to remove unwanted notes permanently by clicking ”Delete”. For text formatting, users can bold, italicize, or underline text, as well as change text size and font while creating or editing a note. After each edit, users must “Save” their notes to ensure changes are stored securely. Manage your account by logging out to secure your data. To log out of the application, the user will click “Logout”.
 
 ## Technologies
 
