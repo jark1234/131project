@@ -190,18 +190,23 @@ def profile_edit():
         return redirect(url_for('profile')) #redirects to profile after submitting form, will show updated dob, username
     return render_template('profile_edit.html', form=current_form)
 
-@myapp_obj.route('/search', methods=['POST'])
+@myapp_obj.route('/search', methods=['POST', 'GET'])
 def search():
-    query = request.form.get('query')
-    if query:
-        notes = Note.query.filter(
-            (Note.title.ilike(f"%{query}%")) | (Note.data.ilike(f"%{query}%"))
-        ).all()
-    else:
-        notes = Note.query.all()
+    if request.method == 'POST':
+        query = request.form.get('query')
+        if query:
+            # Use ilike for case-insensitive search
+            notes = Note.query.filter(
+                (Note.title.ilike(f"%{query}%")) | (Note.data.ilike(f"%{query}%"))
+            ).all()
+        else:
+            notes = Note.query.all()
 
-    previous_page = request.referrer
-    return render_template('search_results.html', query=query, notes=notes, previous_page=previous_page)
+        return render_template('search_results.html', query=query, notes=notes)
+    else:
+        # Handle GET request if needed
+        return redirect(url_for('create_note'))  # Redirect to home or any other page
+
 
 #helper function
 
