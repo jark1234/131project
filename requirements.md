@@ -18,6 +18,8 @@
 ## Sketches
 
 ![](https://github.com/jark1234/131project/blob/main/images/ui1.jpg)
+![](https://github.com/jark1234/131project/blob/main/images/ui2.jpg)
+
 
 ## Non-functional Requirements
 
