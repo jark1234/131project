@@ -28,135 +28,125 @@
 
 ## Use Cases
 
-1. **Create an account using email and password** [Natalie Kao]
-- **Summary:** This feature should allow a user to create a new account using an email address and a password.
-- **Actors:** User and Application
-- **Pre-conditions:** User does not have an existing account with that particular email address.
+1. **Create Account with Email and Password** [Natalie Kao]
+- **Summary:** Users can create a new account within the application by providing a valid email address and password.
+- **Actors:** New Users, Application
+- **Pre-conditions:** User is not currently registered in the application.
 - **Trigger:** User clicks "Create New Account."
 - **Primary Sequence:**
-- 1. User enters their email address in the first field
-- 2. User enters a password with at least one uppercase character and at least on special symbol in the second field
-- 3. User re-enters same password in third field
-- 4. User clicks "Create Account"
-- **Alternate Sequence: User enters an email that is already in use**
-- 1. User is prompted to sign in with existing email address
-- **Postcondition:**
-- A new account is created with respective email address and password.
-- OR
-- User is prompted to sign in with existing email address and password.
-
+- 1. User enters their email address in "Email:" field.
+- 2. User enters a password with at least one uppercase character and at least one special symbol in the "Password:" field.
+- 3. User re-enters same password in "Confirm Password:" field.
+- 4. User clicks "Create Account".
+- 5. The application returns the user to the login screen.
+- **Primary Postcondition:**
+- The user account is successfully created, and the user is now registered in the application.
+- **Alternate Sequence**
+- 5. The provided email address is already associated with an existing account.
+- 6. The application informs the user that the email address is already in use and prompts them to use a different one.
+     
 2. **Create a new note** [Natalie Kao]
-- **Summary:** This feature should allow a user to create a new note within the application.
-- **Actors:** User and Application
+- **Summary:** Users can generate a new note within the application to capture and store information.
+- **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged into their account.
 - **Trigger:** User clicks "Create New Note."
 - **Primary Sequence:**
-  1. User is presented with a blank note-taking interface.
-  2. User enters the title of the note in the designated field.
-  3. User enters the content of the note in the main text area.
-  4. User may apply formatting or categorization to the note
-  5. User clicks "Save" or "Create" to save the new note.
-- **Alternate Sequence: User cancels note creation**
-  1. At any point before saving, the user can click "Cancel" to exit the note-creation process. No note is saved.
-- **Postcondition:**
-  - A new note is created and saved in the user's account with the provided title, content, and any additional options chosen.
-  - OR
-  - The user cancels the note creation, and no new note is saved.
+- 1. Application provides user with a blank note-taking interface.
+- 2. User enters the title of the note in the "Title" field.
+- 3. User enters the content of the "Text" field.
+- 4. User clicks "Add Note" to save the new note.
+- 5. The application validates and stores the new note in the user's account.
+- **Primary Postcondition:**
+- A new note is successfully created and saved in the user's account.
+- **Alternate Sequence**
+- 4. User doesn't click "Add Note"
+- 5. Note is not saved and stored in users account.
 
-3. **Edit existing note** [Natalie Kao]
-- **Summary:** This feature should allow a user to edit their existing notes within the application.
-- **Actors:** User and Application
-- **Pre-conditions:** User is logged into their account and has existing notes.
+3. **Edit Existing Note** [Natalie Kao]
+- **Summary:** Users can modify and update the content of an existing note within the application.
+- **Actors:** Registered Users and Application
+- **Pre-conditions:** User is logged into the application and has at least one existing note.
 - **Trigger:** User selects the note they want to edit.
 - **Primary Sequence:**
-  1. User selects the note they want to edit from their list of existing notes.
-  2. The selected note is displayed in an editing interface.
-  3. User can make changes to the title and content of the note.
-  4. User may apply formatting or categorization to the edited note.
-  5. User clicks "Save" to save the changes made to the note.
-- **Alternate Sequence: User cancels note editing**
-  1. At any point during the editing process, the user can click "Cancel" to discard the changes and exit the editing interface.
+- 1. The application opens the selected note in edit mode, providing an interface for the user to modify the content.
+- 2. User makes the desired changes to the note content.
+- 3. User clicks "Add Note" to save the edited note.
+- 4. The application validates and updates the existing note with the new content.
 - **Postcondition:**
-  - The selected note is updated with the changes made by the user.
-  - OR
-  - The user cancels the note editing, and the note remains unchanged.
+- The selected note is successfully edited and updated with the new content in the user's account.
+- **Alternate Sequence**
+- 3. User doesn't click "Add Note" to save the edited note.
+- 4. Changes to note are not saved.
 
-4. **Delete a note** [Natalie Kao]
-- **Summary:** This feature should allow a user to delete their notes within the application.
-- **Actors:** User and Application
-- **Pre-conditions:** User is logged into their account and has existing notes.
-- **Trigger:** user clicks the 'Delete' button adjacent to a note
+4. **Delete Note** [Natalie Kao]
+- **Summary:** Users can remove unwanted notes from their account within the application.
+- **Actors:** Registered Users and Application
+- **Pre-conditions:** User is logged into the application and has at least one existing note.
+- **Trigger:** User decides to delete a note.
 - **Primary Sequence:**
-  1. The application prompts the user for confirmation to delete the note.
-  2. User confirms the deletion.
-- **Alternate Sequence: User cancels note deletion**
-  1. If the user decides not to delete the note, they can cancel the deletion when prompted for confirmation.
+- 1. User navigates to the list of existing notes within the application.
+- 2. User selects the note they wish to delete.
+- 3. User clicks "Delete Note".
+- 4. The application prompts the user to confirm the deletion.
+- 5. User confirms the deletion action.
+- 6. The application removes the selected note from the user's account.
 - **Postcondition:**
-  - The selected note is permanently deleted from the user's account.
-  - OR
-  - The user cancels the note deletion, and the note remains in their account.
+- The selected note is successfully deleted and no longer appears in the user's list of notes.
+- **Alternate Sequence**
+- 5. User cancels the deletion action.
+- 6. The application retains the note in the user's account, and no changes are made.
 
 5. **Format Text: Bold, Italicize, and Underline** [Novel Alam]
-
-- **Summary:** Users can apply formatting options (bold, italic, underline) to selected text in their notes.
-- **Actors:** Users and Application
+- **Summary:** Users can apply text formatting options such as bold, italicize, and underline to enhance the visual appearance of their notes within the application.
+- **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User opens note
+- **Trigger:** User opens new or existing note.
 - **Primary Sequence:**
-- 1. User highlights a portion of text in the note.
+- 1. User selects the specific text within the note that they want to format.
 - 2. The application displays a formatting toolbar with options for bold, italic, and underline.
 - 3. User clicks the "Bold" button on the toolbar.
 - 4. User clicks the "Italic" button on the toolbar.
 - 5. The application applies the italic style to the selected text.
 - 6. User clicks the "Underline" button on the toolbar.
 - 7. The application applies the underline style to the selected text.
-- **Primary Postcondition:** The selected text is formatted with bold, italic, and underline styles as per the user's actions.
-- **Alternate Sequence:** Formatting error
-- 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
+- 8. The application updates the note in real-time to reflect the applied formatting.
+- **Primary Postcondition:**
+- The selected text within the note is successfully formatted with the user's chosen options (bold, italic, or underline).
 - **Primary Postcondition:** 
 - The selected text is formatted with bold, italic, and underline styles as per the user's actions.
-- **Alternate Sequence:** Formatting error
-- 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
+- **Alternate Sequence:**
+- 8. Application fails to update to reflect users formatting choices.
+- 9. Modifications to formatting don't change.
 
 6. **Save Notes** [Novel Alam]
-
-- **Summary:** Users can save changes made to their notes.
-- **Actors:** Users and Application
-- **Pre-conditions:** User is logged in and has one note in the database.
-- **Trigger:** User makes edit to note.
+- **Summary:** Users can save their notes within the application to preserve changes and ensure the latest version is stored in their account.
+- **Actors:** Registered Users and Application
+- **Pre-conditions:** User is logged into the application and has at least one existing note.
+- **Trigger:** User makes an edit to note.
 - **Primary Sequence:**
 - 1. User clicks the "Save" button.
 - 2. The application validates the note data.
 - 3. The application saves the changes to the note.
-- 4. The database stores the encrypted note data and enforces access controls to protect data privacy and integrity.
-- **Primary Postcondition:** The changes made to the note are successfully saved.
-- **Alternate Sequence:** Saving error
-- 3. If the application encounters an issue during the saving process, it informs the user with an error message, and the changes are not saved.
-- **Primary Postcondition:** The changes made to the note are successfully saved.
-- **Alternate Sequence:** Saving error
-- 3. If the application encounters an issue during the saving process, it informs the user with an error message, and the changes are not saved.
+- **Primary Postcondition:**
+- The user's note is successfully saved, preserving the most recent changes and updates in their account.
+- **Alternate Sequence:**
+- 2. The application fails to validate the note data.
+- 3. Changes to the note are not saved.
 
-7. **Switch between Dark and Light Mode** [Iskandar Daoud]
-
-- **Summary:** Users can toggle between dark and light modes for the application interface.
-- **Actors:** Users and Application
-- **Pre-conditions:** User is logged in.
-- **Trigger:** User clicks on the settings menu.
+7. **Toggle Dark and Light Mode** [Iskandar Daoud]
+- **Summary:** Users can switch between dark and light modes within the application, providing a personalized visual experience.
+- **Actors:** Registered Users and Application
+- **Pre-conditions:** User is logged into the application.
+- **Trigger:** User clicks on the "Settings" menu.
 - **Primary Sequence:**
 - 1. User selects the "Mode" option.
 - 2. Application prompts users for “Light” or “Dark” mode.
 - 3. User selects the mode.
 - 4. The application switches to selected mode.
 - **Primary Postcondition:** The application interface is now in selected mode.
-- **Alternate Sequence:** Mode switching error
-- 4. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
-- 1. User selects the "Mode" option.
-- 2. Application prompts users for “Light” or “Dark” mode.
-- 3. User selects the mode.
-- 4. The application switches to selected mode.
-- **Primary Postcondition:** The application interface is now in selected mode.
-- **Alternate Sequence:** Mode switching error
-- 1. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
+- **Alternate Sequence:**
+- 4. Application fails to switch to selected mode.
+- 5. Application stays in current mode.
 
 8. **User logout** [Natalie Kao]
 - **Summary:** Users can securely log out of the application to protect their account and data.
@@ -205,7 +195,7 @@
 - **Primary Postcondition:**
 - The selected text within the note is modified with the user-defined font size and heading styles.
 - **Alternative Sequence:**
-- 6. Application fails to update to reflect user's formatting choices.
+- 6. Application fails to update to reflect users formatting choices.
 - 7. Modifications to formatting don't change.
 
 11. **Connect with an External API** [Jaclyn Turner]
@@ -253,7 +243,7 @@
 - **Primary Postcondition:** The user's account is successfully deleted from the application, and all associated data is permanently removed.
 - **Alternate Sequence:**
 - 4. User clicks "No" to confirm account deletion.
-- 4. The application doesn't delete the user's account.
+- 5. The application doesn't delete the user's account.
 
 14. **Search Note Titles and Contents with Keywords** [Jaclyn Turner]
 - **Summary:** Users can perform searches on notes using keywords to quickly find specific notes for quick and efficient access to relevant information.
