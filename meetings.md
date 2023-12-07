@@ -79,3 +79,19 @@
 - Team updates (15min or less): Milestone 2
 - pair-programming (optional) (25 mins): NA
 - Summarize group progress: Natalie, Novel and Jaclyn met to discuss finish requirement changes and codes to implement for milestone 2. Natalie will implement requirement 8, Jaclyn will implement 14, and will also update the requirements file with appropriate use cases.
+
+### 2023-11-30 at 10:30
+
+- Who attended the meeting: Jaclyn Novel, Natalie
+
+- Team updates (15min or less): Milestone 3
+- pair-programming (optional) (25 mins): NA
+- Summarize group progress: Discussions for milestone 3. Jaclyn will take on search bar and Spanish forms, Natalie will create a navigation bar for profile settings and do Spanish routing, and Novel will fix timestamp feature.
+
+  ### 2023-12-05 at 10:30
+
+- Who attended the meeting: Jaclyn Novel, Natalie
+
+- Team updates (15min or less): Milestone 3, fix milestone 1, talk with Professor.
+- pair-programming (optional) (25 mins): NA
+- Summarize group progress: Check-in with milestone 3 progress. Talked with Professor about finishing milestone 1. Jaclyn will take on the updates required.
