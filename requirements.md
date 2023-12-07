@@ -159,85 +159,85 @@
 - 1. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
 
 8. **User logout** [Natalie Kao]
-- **Summary:** Registered users can log out of the application to end their current session securely.
-- **Actors:** User and Application
-- **Pre-conditions**: User has an account and is logged in.
+- **Summary:** Users can securely log out of the application to protect their account and data.
+- **Actors:** Registered Users and Application
+- **Pre-conditions**: User has an account and is logged into the application.
 - **Trigger**: User decides to log out of the application.
 - **Primary Sequence**:
-- 1. User navigates to the user settings section.
+- 1. User navigates to the logout option within the application.
 - 2. User clicks on the “logout” button.
-- 3. The application returns to the login/home screen
-- **Primary Postcondition:** User is successfully logged out of the application and redirected to the login page.
+- 3. User confirms the logout action.
+- 4. The application invalidates the user's session, logging them out.
+- 5. The application returns the user to the login screen
+- **Primary Postcondition:** The user is successfully logged out, and their session is terminated.
 - **Alternative Sequence:**
-- 2. User cancels logout option.
-- 4. User remains logged in and stays on the current screen.
-- 2. User cancels logout option.
+- 3. User cancels logout option.
 - 4. User remains logged in and stays on the current screen.
 
-9. **Update profile name** [Natalie Kao]
-- **Summary:** Registered users can update their profile name to keep their personal information accurate and reflective of any changes.
-- **Actors:** User and Application
-- **Pre-conditions:** User has an account and is logged in.
-- **Trigger:** The user decides to update their profile name.
+9. **Update Profile Name and Date of Birth** [Natalie Kao]
+- **Summary:** Users can modify and update their profile name and date of birth within the application for accurate and current user information.
+- **Actors:** Registered Users and Application
+- **Pre-conditions:** User has an account and is logged into the application.
+- **Trigger:** The user decides to update their profile name and birthday.
 - **Primary Sequence:**
 - 1. User navigates to the profile settings section.
-- 2. User selects the option to edit profile name.
-- 3. User updates the profile name with the desired changes.
+- 2. User selects the option to edit profile name and date of birth.
+- 3. User updates the profile name and date of birth with the desired changes.
 - 4. User clicked "Save" to save the updated profile information.
+- 5. The application saves the changes, updating the user's profile with the new name and/or date of birth.
 - **Primary Postcondition:** The user's profile name is successfully updated with the new information.
 - **Alternative Sequence:**
 - 4. User aborts save.
-- 5. Application doesn't update profile name.
+- 5. Application doesn't update profile information.
 
-10. **Users should be able to modify the font size and headings within the note.** [Novel Alam]
-- **Summary:** Users can modify font size and headings within the note feature of the application.
-- **Actors:** User and Application
-- **Pre-conditions:** The user is logged into the application and accessing the note-taking feature.
-- **Trigger:** User utilizes the toolbar and drop-down menu to select a new font size or heading within the Note Editor.
-- **Primary Sequence:**
-- 1. The Note Editor toolbar displays options for adjusting font size and headings.
-- 2. User interacts with the toolbar and selects preferred font size or heading options from the drop-down menu.
-- 3. Chosen settings are implemented by the Note Editor to modify the font size or headings within the note.
-- 4. The note content is displayed to the user with the newly selected font size or headings.
-- **Primary Postcondition:**
-- 1. User successfully modifies the font size or headings within the note.
-- 2. Note Editor displays the note according to the user's chosen font size or headings.
-- **Alternative Sequence:**
-- 1. User attempts to access the Note Editor but finds no existing note available for editing.
-- 2. As no note is present, the User cannot modify font size or headings within the Note Editor.
-- 3. Application may prompt the User to create a new note or take necessary actions to proceed.
-- 4. Without an existing note, the Note Editor remains inactive, preventing any changes to font size or headings.
-
-11. **Advanced Search with Regular Expressions and Category Filters** [Jaclyn Turner]
-- **Summary:** Users can perform advanced searches on notes using regular expressions or apply category filters to quickly find specific notes within for quick and efficient access to relevant information.
+10. **Modify Font Size and Headings within Notes.** [Novel Alam]
+- **Summary:** Users have the ability to customize the font size and headings within their notes for a personalized and visually appealing experience.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User initiates an advanced search by clicking "Search".
+- **Trigger:** User opens new or existing note for editing.
 - **Primary Sequence:**
-- 1. User enter expression in the search bar.
-- 2. The application searches the database for notes containing the specified expression.
-- 3. If using category filters, user selects one or more categories for filtering.
-- 3. The application displays a list of matching notes.
-- **Primary Postcondition:** The user can access the notes that match the search criteria.
-- **Alternate Sequence:**
-- 4. No matching notes are found.
-- 5. The application displays a “no results” message.
+- 1. The note editor toolbar displays options for adjusting font size and headings.
+- 2. User interacts with the toolbar and selects preferred font size or heading options from the toolbar.
+- 3. User selects the desired text or position in the note.
+- 4. User adjusts the font size from the toolbar.
+- 5. User applies heading styles as needed.
+- 6. The application updates the note in real-time to reflect the user's formatting choices.
+- **Primary Postcondition:**
+- The selected text within the note is modified with the user-defined font size and heading styles.
+- **Alternative Sequence:**
+- 6. Application fails to update to reflect user's formatting choices.
+- 7. Modifications to formatting don't change.
 
-12. **Timestamp Note Creation** [Novel]
-- **Summary:** The application automatically timestamps the creation of a note to provide users with a record of when each note was created.
-- **Actors:** Registered Users and Application
-- **Pre-conditions:** User is logged in to the application.
-- **Trigger:** The user initiates the creation of a new note.
+11. **Connect with an External API** [Jaclyn Turner]
+- **Summary:** The application can communicate and exchange data with an external API, enabling the retrieval or submission of information from/to external sources.
+- **Actors:** Application and External API
+- **Pre-conditions:** The application is running and the external API is accessible.
+- **Trigger:** User initiates an action that requires interaction with the external API.
 - **Primary Sequence:**
-- 1. User selects option to create a new note.
-- 2. The application presents an empty note interface.
-- 3. User enters the content of the note.
-- 4. The application automatically generates and associates a timestamp with the note, reflecting the date and time of its creation.
-- 5. User saves the note.
-- **Primary Postcondition:** The note is successfully created, and a timestamp is associated with it, indicating the date and time of its creation.
+- 1. The application sends a request to the external API, specifying the required information or action.
+- 2. The external API processes the request and returns the relevant data or confirmation.
+- 3. The application receives and processes the data or confirmation from the external API.
+- **Primary Postcondition:** The application successfully interacts with the external API, and the desired data or action is integrated into the application.
 - **Alternate Sequence:**
-- 5. User doesn't save note.
-- 6. Note isn't created or timestamped.
+- 2. The external API encounters an issue processing the request.
+- 3. The application fails to receive the data.
+- 4. The application displays the relevant error message to the user.
+
+12. **Toggle Timestamp Visibility** [Novel]
+- **Summary:** Users can control the visibility of timestamps on their notes by toggling the timestamp feature on and off.
+- **Actors:** Registered Users and Application
+- **Pre-conditions:** User is logged in and has at least one note in the database.
+- **Trigger:** User decides to change timestamp visibility.
+- **Primary Sequence:**
+- 1. User navigates to the homepage, where notes are displayed.
+- 2. The user clicks "Hide Timestamps".
+- 3. The application hides timestamps for all notes.
+  4. The user clicks "Show Timestamps".
+  5. The application reveals timestamps on all notes.
+- **Primary Postcondition:** Timestamps on the homepage are either visible or hidden, based on the user's decision to toggle visibility.
+- **Alternate Sequence:**
+- 5. Application fails to load timestamps.
+- 6. Application displays "Error - Try again." message.
 
 13. **Delete Account** [Jaclyn Turner]
 - **Summary:** Registered users can initiate the process of permanently deleting their account from the application.
@@ -249,7 +249,7 @@
 - 2. User clicks "Delete account".
 - 3. Application prompts user for confirmation.
 - 4. User clicks "Yes" to confirm account deletion.
-- 3. The application permanently deletes the user account.
+- 5. The application permanently deletes the user account.
 - **Primary Postcondition:** The user's account is successfully deleted from the application, and all associated data is permanently removed.
 - **Alternate Sequence:**
 - 4. User clicks "No" to confirm account deletion.
@@ -263,7 +263,7 @@
 - **Primary Sequence:**
 - 1. User enters keywords in the search bar.
   2. The user clicks "Search"
-- 3. The application searches the database for notes containing the specified expression.
+- 3. The application searches the database for notes containing the specified keywords.
 - 4. The application displays a list of matching notes.
 - **Primary Postcondition:** The user can access the notes that match the search criteria.
 - **Alternate Sequence:**
