@@ -70,12 +70,12 @@
 - **Primary Sequence:**
 - 1. The application opens the selected note in edit mode, providing an interface for the user to modify the content.
 - 2. User makes the desired changes to the note content.
-- 3. User clicks "Add Note" to save the edited note.
+- 3. User clicks "Save" to save the edited note.
 - 4. The application validates and updates the existing note with the new content.
 - **Postcondition:**
 - The selected note is successfully edited and updated with the new content in the user's account.
 - **Alternate Sequence**
-- 3. User doesn't click "Add Note" to save the edited note.
+- 3. User doesn't click "Save" to save the edited note.
 - 4. Changes to note are not saved.
 
 4. **Delete Note** [Natalie Kao]
