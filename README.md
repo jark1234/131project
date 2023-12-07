@@ -35,7 +35,7 @@
 - Users must be able to save their notes [Novel]
 - Users must be able to log out of their account [Natalie]
 - Users must be able to update their profile name and date of birth [Natalie]
-- Users should be able to modify the font size and headings within the note.
+- Users should be able to modify the font size and headings within the note. [Novel]
 - Connect with an External API\* [Novel]
 - User must be able to turn timestamp visibility on and off [Novel]
 - Users must have the ability to permanently delete their account [Jaclyn]
