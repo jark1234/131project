@@ -18,6 +18,8 @@
 ## Sketches
 
 ![](https://github.com/jark1234/131project/blob/main/images/ui1.jpg)
+![](https://github.com/jark1234/131project/blob/main/images/ui2.jpg)
+
 
 ## Non-functional Requirements
 
@@ -32,11 +34,10 @@
 - **Pre-conditions:** User does not have an existing account with that particular email address.
 - **Trigger:** User clicks "Create New Account."
 - **Primary Sequence:**
-- 1. User clicks on Create new account option
-- 2. User enters their email address in the first field
-- 3. User enters a password with at least one uppercase character and at least on special symbol in the second field
-- 4. User re-enters same password in third field
-- 5. User clicks "Create Account"
+- 1. User enters their email address in the first field
+- 2. User enters a password with at least one uppercase character and at least on special symbol in the second field
+- 3. User re-enters same password in third field
+- 4. User clicks "Create Account"
 - **Alternate Sequence: User enters an email that is already in use**
 - 1. User is prompted to sign in with existing email address
 - **Postcondition:**
@@ -50,12 +51,11 @@
 - **Pre-conditions:** User is logged into their account.
 - **Trigger:** User clicks "Create New Note."
 - **Primary Sequence:**
-  1. User clicks on "Create New Note" option.
-  2. User is presented with a blank note-taking interface.
-  3. User enters the title of the note in the designated field.
-  4. User enters the content of the note in the main text area.
-  5. User may apply formatting or categorization to the note
-  6. User clicks "Save" or "Create" to save the new note.
+  1. User is presented with a blank note-taking interface.
+  2. User enters the title of the note in the designated field.
+  3. User enters the content of the note in the main text area.
+  4. User may apply formatting or categorization to the note
+  5. User clicks "Save" or "Create" to save the new note.
 - **Alternate Sequence: User cancels note creation**
   1. At any point before saving, the user can click "Cancel" to exit the note creation process. No note is saved.
 - **Postcondition:**
@@ -85,13 +85,10 @@
 - **Summary:** This feature should allow a user to delete their notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
-- **Trigger:** User selects the note they want to delete.
+- **Trigger:** user clicks the 'Delete' button adjacent to a note
 - **Primary Sequence:**
-  1. User selects the note they want to delete from their list of existing notes.
-  2. The selected note is displayed with a "Delete" option.
-  3. User clicks the "Delete" option.
-  4. The application prompts the user for confirmation to delete the note.
-  5. User confirms the deletion.
+  1. The application prompts the user for confirmation to delete the note.
+  2. User confirms the deletion.
 - **Alternate Sequence: User cancels note deletion**
   1. If the user decides not to delete the note, they can cancel the deletion when prompted for confirmation.
 - **Postcondition:**
@@ -99,12 +96,11 @@
   - OR
   - The user cancels the note deletion, and the note remains in their account.
 
-5. **Format Text: Bold, Italicize, and Underline** [Iskandar Daoud]
+5. **Format Text: Bold, Italicize, and Underline** [Novel Alam]
 
 - **Summary:** Users can apply formatting options (bold, italic, underline) to selected text in their notes.
 - **Actors:** Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User opens note
 - **Trigger:** User opens note
 - **Primary Sequence:**
 - 1. User highlights a portion of text in the note.
@@ -117,27 +113,18 @@
 - **Primary Postcondition:** The selected text is formatted with bold, italic, and underline styles as per the user's actions.
 - **Alternate Sequence:** Formatting error
 - 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
-- 1. User highlights a portion of text in the note.
-- 2. The application displays a formatting toolbar with options for bold, italic, and underline.
-- 3. User clicks the "Bold" button on the toolbar.
-- 4. User clicks the "Italic" button on the toolbar.
-- 5. The application applies the italic style to the selected text.
-- 6. User clicks the "Underline" button on the toolbar.
-- 7. The application applies the underline style to the selected text.
-- **Primary Postcondition:** The selected text is formatted with bold, italic, and underline styles as per the user's actions.
+- **Primary Postcondition:** 
+- The selected text is formatted with bold, italic, and underline styles as per the user's actions.
 - **Alternate Sequence:** Formatting error
 - 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
 
-6. **Save Notes** [Iskandar Daoud]
+6. **Save Notes** [Natalie Kao]
 
 - **Summary:** Users can save changes made to their notes.
 - **Actors:** Users and Application
 - **Pre-conditions:** User is logged in and has one note in the database.
 - **Trigger:** User makes edit to note.
 - **Primary Sequence:**
-- 1. User clicks the "Save" button.
-- 2. The application validates the note data.
-- 3. The application saves the changes to the note.
 - 1. User clicks the "Save" button.
 - 2. The application validates the note data.
 - 3. The application saves the changes to the note.
@@ -169,7 +156,7 @@
 - 4. The application switches to selected mode.
 - **Primary Postcondition:** The application interface is now in selected mode.
 - **Alternate Sequence:** Mode switching error
-- 4. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
+- 1. If the application encounters an issue switching mode, it informs the user with an error message, and the mode remains unchanged.
 
 8. **User logout** [Natalie Kao]
 - **Summary:** Registered users can log out of the application to end their current session securely.
