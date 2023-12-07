@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from . import myapp_obj, db
+from app import myapp_obj, db
 from app.models import Note, User
 from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, DeleteNoteForm, EditNoteForm, LogoutForm, DeleteAccountForm, ProfileEditForm 
 #import spanish forms
@@ -396,14 +396,6 @@ def Sprofile_edit():
 
 @myapp_obj.route('/calendar')
 def calendar():
-    # Get the current year
-    current_year = datetime.now().year
-
-    # Generate the calendar for the current year
-    cal = calendar.HTMLCalendar().formatyear(current_year, 2, 1, 1, 1)
-
-    return render_template('calendar.html', calendar_html=cal, year=current_year)
-
-
+    return render_template('calendar.html')
 
 
