@@ -8,12 +8,12 @@
 6. Users must be able to save their notes.
 7. Users must be able to select dark or light mode.
 8. Users must be able to log out of their accounts.
-9. Users must be able to update their profile name.
+9. Users must be able to update their profile name and date of birth.
 10. Users should be able to modify the font size and headings within the note.
-11. The application should provide advanced search items with regular expressions or filters by categories.
-12. The application should provide a timestamp for note creation.
-13. Users should have the ability to delete their accounts permanently.
-14. Users should be able to secure individual notes with a password.
+11. Connect with an External API*.
+12. Users must be able to turn timestamp visibility on and off.
+13. Users must have the ability to permanently delete their account.
+14. Users must have the ability to search note titles and contents with keywords.
 
 ## Sketches
 
@@ -23,12 +23,12 @@
 
 ## Non-functional Requirements
 
-1. The application should provide multiligual support.
+1. The application should provide multilingual support*.
 2. The application should be compatible with Google Chrome version 118.0.5993.129 or prior.
 
 ## Use Cases
 
-1. **Create an account using email and password** [Novel Alam]
+1. **Create an account using email and password** [Natalie Kao]
 - **Summary:** This feature should allow a user to create a new account using an email address and a password.
 - **Actors:** User and Application
 - **Pre-conditions:** User does not have an existing account with that particular email address.
@@ -45,7 +45,7 @@
 - OR
 - User is prompted to sign in with existing email address and password.
 
-2. **Create a new note** [Novel Alam]
+2. **Create a new note** [Natalie Kao]
 - **Summary:** This feature should allow a user to create a new note within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account.
@@ -57,13 +57,13 @@
   4. User may apply formatting or categorization to the note
   5. User clicks "Save" or "Create" to save the new note.
 - **Alternate Sequence: User cancels note creation**
-  1. At any point before saving, the user can click "Cancel" to exit the note creation process. No note is saved.
+  1. At any point before saving, the user can click "Cancel" to exit the note-creation process. No note is saved.
 - **Postcondition:**
   - A new note is created and saved in the user's account with the provided title, content, and any additional options chosen.
   - OR
   - The user cancels the note creation, and no new note is saved.
 
-3. **Edit existing note** [Novel Alam]
+3. **Edit existing note** [Natalie Kao]
 - **Summary:** This feature should allow a user to edit their existing notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -81,7 +81,7 @@
   - OR
   - The user cancels the note editing, and the note remains unchanged.
 
-4. **Delete a note** [Novel Alam]
+4. **Delete a note** [Natalie Kao]
 - **Summary:** This feature should allow a user to delete their notes within the application.
 - **Actors:** User and Application
 - **Pre-conditions:** User is logged into their account and has existing notes.
@@ -118,7 +118,7 @@
 - **Alternate Sequence:** Formatting error
 - 7. If the application encounters an issue applying any of the styles, it informs the user with an error message and reverts to the previous state.
 
-6. **Save Notes** [Natalie Kao]
+6. **Save Notes** [Novel Alam]
 
 - **Summary:** Users can save changes made to their notes.
 - **Actors:** Users and Application
@@ -223,7 +223,7 @@
 - 4. No matching notes are found.
 - 5. The application displays a “no results” message.
 
-12. **Timestamp Note Creation** [Jaclyn Turner]
+12. **Timestamp Note Creation** [Novel]
 - **Summary:** The application automatically timestamps the creation of a note to provide users with a record of when each note was created.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in to the application.
@@ -245,26 +245,27 @@
 - **Pre-conditions:** User is logged in to application.
 - **Trigger:** The user decides to delete their account.
 - **Primary Sequence:**
-- 1. User navigates to the account settings section.
+- 1. User navigates to "Profile" settings section.
 - 2. User clicks "Delete account".
+- 3. Application prompts user for confirmation.
+- 4. User clicks "Yes" to confirm account deletion.
 - 3. The application permanently deletes the user account.
 - **Primary Postcondition:** The user's account is successfully deleted from the application, and all associated data is permanently removed.
 - **Alternate Sequence:**
-- 3. The system displays an error message.
+- 4. User clicks "No" to confirm account deletion.
 - 4. The application doesn't delete the user's account.
 
-14. **Secure Individual Notes with a Password** [Jaclyn Turner]
-- **Summary:** Users can enhance the privacy of specific notes by securing them with a password.
+14. **Search Note Titles and Contents with Keywords** [Jaclyn Turner]
+- **Summary:** Users can perform searches on notes using keywords to quickly find specific notes for quick and efficient access to relevant information.
 - **Actors:** Registered Users and Application
 - **Pre-conditions:** User is logged in and has at least one note in the database.
-- **Trigger:** User selects a note to secure with a password.
+- **Trigger:** User initiates a search by clicking the search bar.
 - **Primary Sequence:**
-- 1. User selects a note to secure.
-- 2. User clicks "Secure with Password".
-- 3. The application prompts user for password.
-- 4. User enters password for the note.
-- 5. The application encrypts the note with the provided password.
-- **Primary Postcondition:** The selected note is secured with a password, and only users with the correct password can access it.
+- 1. User enters keywords in the search bar.
+  2. The user clicks "Search"
+- 3. The application searches the database for notes containing the specified expression.
+- 4. The application displays a list of matching notes.
+- **Primary Postcondition:** The user can access the notes that match the search criteria.
 - **Alternate Sequence:**
-- 4. Application fails to encrypt the note with the password.
-- 5. Application informs user with “encryption fail" error.
+- 4. No matching notes are found.
+- 5. The application displays a “no results” message.
