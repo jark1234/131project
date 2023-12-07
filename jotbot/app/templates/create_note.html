@@ -57,6 +57,20 @@
       <div class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-bold">My Notes</h1>
         <div class="flex space-x-4"></div>
+        <form method="POST" action="{{ url_for('search') }}" class="ml-auto">
+          <input
+            type="text"
+            name="query"
+            placeholder="Search notes"
+            class="border p-2"
+          />
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Search
+          </button>
+        </form>
       </div>
       <form method="POST" action="{{url_for('create_note')}}">
         {{ current_form.hidden_tag() }} {% if current_form.edit_note_id %}
