@@ -1,0 +1,22 @@
+<!-- current_time.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <style>
+        /* Add any additional styling for the current_time.html if needed */
+    </style>
+</head>
+<body>
+    <div class="flex items-center justify-center h-screen">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold mb-4">Current Time</h1>
+            <p class="text-xl">{{ current_time }}</p>
+            <a href="{{ url_for('home') }}" class="text-blue-500 hover:underline mt-4 block">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
