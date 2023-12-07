@@ -4,3 +4,17 @@
   color: rgb(216, 214, 195);
   margin-bottom: 20px;
 }
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+#dark-mode-toggle {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
