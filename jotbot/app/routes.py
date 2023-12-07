@@ -6,6 +6,9 @@ from app.forms import LoginForm, HomePageForm, SignupForm, CreateNoteForm, Delet
 from app.forms import SCreateNoteForm, SDeleteAccountForm, SDeleteNoteForm, SEditNoteForm, SHomePageForm, SLoginForm, SLogoutForm, SSignupForm, SProfileEditForm, SProfileForm
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask import render_template
+import calendar
+from datetime import datetime
 
 import pytz
 
@@ -391,7 +394,15 @@ def Sprofile_edit():
     return render_template('Sprofile_edit.html', form=current_form)
 
 
+@myapp_obj.route('/calendar')
+def calendar():
+    # Get the current year
+    current_year = datetime.now().year
 
+    # Generate the calendar for the current year
+    cal = calendar.HTMLCalendar().formatyear(current_year, 2, 1, 1, 1)
+
+    return render_template('calendar.html', calendar_html=cal, year=current_year)
 
 
 

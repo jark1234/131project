@@ -163,6 +163,9 @@
       <a href="{{ url_for('profile') }}">Profile</a>
       <a href="{{ url_for('logout') }}">Logout</a>
     </div>
-    <div class="content">{% block content %}{% endblock %}</div>
+    <div class="content">{% block content %}{% endblock %}
+      <a href="{{ url_for('show_timestamps') }}" class="button">Show Timestamps</a>
+      <a href="{{ url_for('calendar') }}" class="button">Calendar</a>
+    </div>
   </body>
 </html>
