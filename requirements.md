@@ -39,8 +39,7 @@
 - 3. User re-enters same password in "Confirm Password:" field.
 - 4. User clicks "Create Account".
 - 5. The application returns the user to the login screen.
-- **Primary Postcondition:**
-- The user account is successfully created, and the user is now registered in the application.
+- **Primary Postcondition:** The user account is successfully created, and the user is now registered in the application.
 - **Alternate Sequence**
 - 5. The provided email address is already associated with an existing account.
 - 6. The application informs the user that the email address is already in use and prompts them to use a different one.
@@ -56,8 +55,7 @@
 - 3. User enters the content of the "Text" field.
 - 4. User clicks "Add Note" to save the new note.
 - 5. The application validates and stores the new note in the user's account.
-- **Primary Postcondition:**
-- A new note is successfully created and saved in the user's account.
+- **Primary Postcondition:** A new note is successfully created and saved in the user's account.
 - **Alternate Sequence**
 - 4. User doesn't click "Add Note"
 - 5. Note is not saved and stored in users account.
@@ -72,8 +70,7 @@
 - 2. User makes the desired changes to the note content.
 - 3. User clicks "Save" to save the edited note.
 - 4. The application validates and updates the existing note with the new content.
-- **Postcondition:**
-- The selected note is successfully edited and updated with the new content in the user's account.
+- **Postcondition:** The selected note is successfully edited and updated with the new content in the user's account.
 - **Alternate Sequence**
 - 3. User doesn't click "Save" to save the edited note.
 - 4. Changes to note are not saved.
@@ -90,8 +87,7 @@
 - 4. The application prompts the user to confirm the deletion.
 - 5. User confirms the deletion action.
 - 6. The application removes the selected note from the user's account.
-- **Postcondition:**
-- The selected note is successfully deleted and no longer appears in the user's list of notes.
+- **Postcondition:** The selected note is successfully deleted and no longer appears in the user's list of notes.
 - **Alternate Sequence**
 - 5. User cancels the deletion action.
 - 6. The application retains the note in the user's account, and no changes are made.
@@ -110,8 +106,7 @@
 - 6. User clicks the "Underline" button on the toolbar.
 - 7. The application applies the underline style to the selected text.
 - 8. The application updates the note in real-time to reflect the applied formatting.
-- **Primary Postcondition:**
-- The selected text within the note is successfully formatted with the user's chosen options (bold, italic, or underline).
+- **Primary Postcondition:** The selected text within the note is successfully formatted with the user's chosen options (bold, italic, or underline).
 - **Alternate Sequence:**
 - 8. Application fails to update to reflect users formatting choices.
 - 9. Modifications to formatting don't change.
@@ -125,8 +120,7 @@
 - 1. User clicks the "Save" button.
 - 2. The application validates the note data.
 - 3. The application saves the changes to the note.
-- **Primary Postcondition:**
-- The user's note is successfully saved, preserving the most recent changes and updates in their account.
+- **Primary Postcondition:** The user's note is successfully saved, preserving the most recent changes and updates in their account.
 - **Alternate Sequence:**
 - 2. The application fails to validate the note data.
 - 3. Changes to the note are not saved.
@@ -190,8 +184,7 @@
 - 4. User adjusts the font size from the toolbar.
 - 5. User applies heading styles as needed.
 - 6. The application updates the note in real-time to reflect the user's formatting choices.
-- **Primary Postcondition:**
-- The selected text within the note is modified with the user-defined font size and heading styles.
+- **Primary Postcondition:** The selected text within the note is modified with the user-defined font size and heading styles.
 - **Alternative Sequence:**
 - 6. Application fails to update to reflect users formatting choices.
 - 7. Modifications to formatting don't change.
