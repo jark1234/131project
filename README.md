@@ -7,6 +7,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Requirements](#requirements)
+- [Video](#video)
 - [Setup](#installation)
 - [Usage](#usage)
 - [Technologies](#technology)
@@ -22,6 +23,9 @@
 - Create, Edit, Delete and Save notes
 - Change profile information for personal experience
 - Hide timestamps for added privacy
+
+## Video
+- https://drive.google.com/file/d/144Jc7kHBWRqwqtjgDELqIsFL5GoFEdp0/view?usp=sharing
 
 ## Requirements
 
