@@ -11,11 +11,12 @@ import pytz
 
 from datetime import datetime
 
+# Home route - redirects to login
 @myapp_obj.route('/')
 def home():
     return redirect(url_for('login'))
 
-
+# Login route
 @myapp_obj.route('/login', methods=['GET', 'POST'])
 def login():
     current_form = LoginForm()
@@ -34,7 +35,7 @@ def login():
 
     return render_template('login.html', current_form=current_form, error=errorMessage)
 
-
+# Create Account route
 @myapp_obj.route('/create_account', methods=['GET', 'POST'])
 def create_account():
     current_form = SignupForm()
@@ -103,7 +104,7 @@ def create_note():
     return render_template('create_note.html', current_form=current_form, user_notes=user_notes)
 
 
-
+# Delete Note route
 @myapp_obj.route('/delete_note/<int:note_id>', methods=['POST'])
 @login_required
 def delete_note(note_id):
@@ -113,6 +114,7 @@ def delete_note(note_id):
     db.session.commit()
     return redirect(url_for('create_note'))
 
+# Edit Note route
 @myapp_obj.route('/edit_note/<int:note_id>', methods=['GET', 'POST'])
 @login_required
 def edit_note(note_id):
@@ -133,14 +135,15 @@ def edit_note(note_id):
     edit_form.text.data = note.data
 
     return render_template('edit_note.html', edit_form=edit_form, note=note)
-
+# Logout route
 @myapp_obj.route('/logout')
 @login_required
 def logout():
     logout_form = LogoutForm()
     logout_user()
     return redirect(url_for('login'))    
-
+    
+# Delete Account route
 @myapp_obj.route('/delete_account', methods=['GET', 'POST'])
 @login_required
 def delete_account():
@@ -162,6 +165,7 @@ def delete_account():
 
     return render_template('delete_account.html', delete_account_form=delete_account_form)
 
+# Profile route
 @myapp_obj.route('/profile' )
 @login_required
 def profile():
@@ -171,7 +175,7 @@ def profile():
     dob = current_user.dob
     return render_template("profile.html", username = username, email = email, password = password, dob=dob)
 
-
+# Profile Edit route
 @myapp_obj.route('/profile_edit', methods = ['GET', 'POST'])
 @login_required
 def profile_edit():
@@ -190,6 +194,7 @@ def profile_edit():
         return redirect(url_for('profile')) #redirects to profile after submitting form, will show updated dob, username
     return render_template('profile_edit.html', form=current_form)
 
+# Search route
 @myapp_obj.route('/search', methods=['POST', 'GET'])
 def search():
     if request.method == 'POST':
@@ -220,7 +225,7 @@ def validPassword(string):
 def Shome():
     return redirect(url_for('Slogin'))
 
-
+# spanishlogin Route
 @myapp_obj.route('/Slogin', methods=['GET', 'POST'])
 def Slogin():
     current_form = SLoginForm()
@@ -239,7 +244,7 @@ def Slogin():
 
     return render_template('Slogin.html', current_form=current_form, error=errorMessage)
 
-
+# spanishcreate_account Route
 @myapp_obj.route('/Screate_account', methods=['GET', 'POST'])
 def Screate_account():
     current_form = SSignupForm()
@@ -277,7 +282,8 @@ def Screate_account():
         print(current_form.errors)
 
     return render_template('Screate_account.html',form=current_form, error = errorMessage)
-
+    
+# spanishcreate_note Route
 @myapp_obj.route('/Screate_note', methods=['GET', 'POST'])
 @login_required
 def Screate_note():
@@ -308,7 +314,7 @@ def Screate_note():
     return render_template('Screate_note.html', current_form=current_form, user_notes=user_notes)
 
 
-
+# spanishdelete_note Route
 @myapp_obj.route('/Sdelete_note/<int:note_id>', methods=['POST'])
 @login_required
 def Sdelete_note(note_id):
@@ -318,6 +324,7 @@ def Sdelete_note(note_id):
     db.session.commit()
     return redirect(url_for('Screate_note'))
 
+# spanishedit_note Route
 @myapp_obj.route('/Sedit_note/<int:note_id>', methods=['GET', 'POST'])
 @login_required
 def Sedit_note(note_id):
@@ -338,7 +345,8 @@ def Sedit_note(note_id):
     edit_form.text.data = note.data
 
     return render_template('Sedit_note.html', edit_form=edit_form, note=note)
-
+    
+# spanishlogout Route
 @myapp_obj.route('/Slogout')
 @login_required
 def Slogout():
@@ -346,6 +354,7 @@ def Slogout():
     logout_user()
     return redirect(url_for('Slogin'))    
 
+# spanishdelete_account Route
 @myapp_obj.route('/Sdelete_account', methods=['GET', 'POST'])
 @login_required
 def Sdelete_account():
@@ -367,6 +376,7 @@ def Sdelete_account():
 
     return render_template('Sdelete_account.html', delete_account_form=delete_account_form)
 
+# spanishprofile Route
 @myapp_obj.route('/Sprofile' )
 @login_required
 def Sprofile():
@@ -376,7 +386,7 @@ def Sprofile():
     dob = current_user.dob
     return render_template("Sprofile.html", username = username, email = email, password = password, dob=dob)
 
-
+# spanishprofile_edit Route
 @myapp_obj.route('/Sprofile_edit', methods = ['GET', 'POST'])
 @login_required
 def Sprofile_edit():
