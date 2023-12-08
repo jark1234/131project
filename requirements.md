@@ -112,8 +112,6 @@
 - 8. The application updates the note in real-time to reflect the applied formatting.
 - **Primary Postcondition:**
 - The selected text within the note is successfully formatted with the user's chosen options (bold, italic, or underline).
-- **Primary Postcondition:** 
-- The selected text is formatted with bold, italic, and underline styles as per the user's actions.
 - **Alternate Sequence:**
 - 8. Application fails to update to reflect users formatting choices.
 - 9. Modifications to formatting don't change.
